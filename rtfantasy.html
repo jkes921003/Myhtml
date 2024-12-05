@@ -18,23 +18,24 @@
 </head>
 <body>
 
+
 <!-- 導覽列 navbar  -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top "style="padding-bottom: 1px;">
         <div class="container-fluid">
           <a class="navbar-brand" href="rtfantasy.html"><img src="https://fakeimg.pl/100x100/" alt="RtFantasy">RtFantasy</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 "style="padding-top: 30px; padding-right: 30px;">
               <li class="nav-item">
-                <a class="nav-link "  href="rtfantasy.html">首頁</a>
+                <a class="nav-link " style="font-size: 22px;" href="rtfantasy.html">首頁</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">關於</a>
+                <a class="nav-link" style="font-size: 22px;" href="about.html">關於</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="work.html">作品集</a>
+                <a class="nav-link" style="font-size: 22px;" href="work.html">作品集</a>
               </li>
                 
               <!-- </li>
@@ -42,16 +43,16 @@
                 <a class="nav-link disabled" aria-disabled="true">Disabled</a>
               </li> -->
             </ul>
-            <form class="d-flex" role="search">
+            <!-- <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="搜尋" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">搜尋</button>
-            </form>
+            </form> -->
           </div>
         </div>
       </nav>
 <!--  幻燈片  -->
 <!-- Carousel -->
-<div id="demo" class="carousel slide" data-bs-ride="carousel" style="width:80%">
+<div id="demo" class="carousel slide" data-bs-ride="carousel" >
 
     <!-- Indicators/dots -->
     <div class="carousel-indicators">
@@ -63,21 +64,21 @@
     <!-- The slideshow/carousel -->
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="https://picsum.photos/200/300/?gravity=east" alt="Los Angeles" class="d-block" style="width:80%" >
+        <img src="https://picsum.photos/100/100/?gravity=east" alt="Los Angeles" class="d-block" style="width:100%" >
         <div class="carousel-caption">
           <h3>Los Angeles</h3>
           <p>We had such a great time in LA!</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="https://picsum.photos/200/300/?gravity=east" alt="Chicago" class="d-block" style="width:80%">
+        <img src="https://picsum.photos/100/100/?gravity=east" alt="Chicago" class="d-block" style="width:100%">
         <div class="carousel-caption">
           <h3>Chicago</h3>
           <p>Thank you, Chicago!</p>
         </div> 
       </div>
       <div class="carousel-item">
-        <img src="https://picsum.photos/200/300/?gravity=east" alt="New York" class="d-block" style="width:80%">
+        <img src="https://picsum.photos/100/100/?gravity=east" alt="New York" class="d-block" style="width:100%">
         <div class="carousel-caption">
           <h3>New York</h3>
           <p>We love the Big Apple!</p>
@@ -94,8 +95,36 @@
     </button>
   </div>
   
-  
+<!-- 資訊卡 -->
+<div class="container mt-3">
+    <div class="card" style="width:400px">
+      <img class="card-img-top" src="https://picsum.photos/200/200/?gravity=east" alt="Card image" style="width:100%">
+      <div class="card-body">
+        <h4 class="card-title">縮時攝影</h4>
+        <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+        <a href="#" class="btn btn-primary">See Profile</a>
+      </div>
+    </div>
 
+    <div class="card" style="width:400px">
+      <img class="card-img-top" src="https://picsum.photos/200/200/?gravity=east" alt="Card image" style="width:100%">
+      <div class="card-body">
+        <h4 class="card-title">偶動畫</h4>
+        <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+        <a href="#" class="btn btn-primary">See Profile</a>
+      </div>
+    </div>
+
+    <div class="card" style="width:400px">
+      <img class="card-img-top" src="https://picsum.photos/200/200/?gravity=east" alt="Card image" style="width:100%">
+      <div class="card-body">
+        <h4 class="card-title">光柵動畫</h4>
+        <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+        <a href="#" class="btn btn-primary">See Profile</a>
+      </div>
+    </div>
+</div>
+  
 
 
 </body>

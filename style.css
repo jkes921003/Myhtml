@@ -1,6 +1,16 @@
 /* 導覽列 */
-
-
-
+.nav-link {
+    display: block;
+    color: rgb(0, 0, 0);
+}
+.navbar-nav {
+    --bs-nav-link-hover-color: rgba(126, 126, 126, 0.8);
+}
 /* 幻燈片 */
 
+/* 資訊卡 */
+
+.mt-3 {
+    display: flex;
+    justify-content: space-around;
+}
