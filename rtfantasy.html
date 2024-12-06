@@ -22,28 +22,37 @@
 <!-- 導覽列 navbar  -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top "style="padding-bottom: 1px;">
         <div class="container-fluid">
-          <a class="navbar-brand" href="rtfantasy.html">
-            <img src="img/logo.png" alt="RtFantasy" class="img-fluid" style="max-height: 60px;"> RtFantasy</a>        
+          <a class="navbar-brand" href="rtfantasy.html" style="font-size: 22px;"  >
+            <img src="img/logo.png" alt="RtFantasy" class="img-fluid" style="max-height: 60px;"  > RtFantasy</a>        
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 "style="padding-top: 30px; padding-right: 30px;">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 "style="padding-top: 30px; padding-right:60px;">
               <li class="nav-item">
                 <a class="nav-link " style="font-size: 22px;" href="rtfantasy.html">首頁</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" style="font-size: 22px;" href="about.html">關於</a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link" style="font-size: 22px;" href="work.html">作品集</a>
+              </li> -->
+              <li class="nav-item dropdown" style="font-size: 22px;">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">作品集</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">攝影</a></li>
+                  <li><a class="dropdown-item" href="#">基本設計</a></li>
+                  <li><a class="dropdown-item" href="#">電子專業</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">精選作品</a></li>
+                </ul>
               </li>
-                
-              <!-- </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link disabled" aria-disabled="true">Disabled</a>
               </li> -->
             </ul>
+            
             <!-- <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="搜尋" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">搜尋</button>

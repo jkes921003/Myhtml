@@ -4,8 +4,6 @@ npm install express
 npm install nedb-promises
 npm install body-parser 
 
-13235456
-
 
 body{     background: #000; } 
 .white{     color:#fff; } 
