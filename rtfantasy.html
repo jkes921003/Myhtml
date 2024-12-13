@@ -20,37 +20,61 @@
 
 
 <!-- 導覽列 navbar  -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top "style="padding-bottom: 1px;">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="rtfantasy.html">
-            <img src="img/logo.png" alt="RtFantasy" class="img-fluid" style="max-height: 70px;"> RtFantasy</a>        
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 "style="padding-top: 30px; padding-right: 30px;">
-              <li class="nav-item">
-                <a class="nav-link " style="font-size: 22px;" href="rtfantasy.html">首頁</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" style="font-size: 22px;" href="about.html">關於</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" style="font-size: 22px;" href="work.html">作品集</a>
-              </li>
-                
-              <!-- </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-              </li> -->
-            </ul>
-            <!-- <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="搜尋" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">搜尋</button>
-            </form> -->
-          </div>
+<body>
+  <div id="app">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="rtfantasy.html">RtFantasy</a>
+        <button 
+          class="navbar-toggler" 
+          type="button" 
+          data-bs-toggle="collapse" 
+          data-bs-target="#navbarNav" 
+          aria-controls="navbarNav" 
+          aria-expanded="false" 
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <!-- 普通連結 -->
+            <li class="nav-item" v-for="(link, index) in navLinks" :key="index">
+              <a class="nav-link" :href="link.href">{{ link.text }}</a>
+            </li>
+
+            <!-- 下拉式選單 -->
+            <li class="nav-item dropdown">
+              <a 
+                class="nav-link dropdown-toggle" 
+                href="#" 
+                id="navbarDropdown" 
+                role="button" 
+                data-bs-toggle="dropdown" 
+                aria-expanded="false">
+                其他選項
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li 
+                  class="dropdown-item" 
+                  v-for="(option, index) in dropdownOptions" 
+                  :key="'dropdown-' + index">
+                  <a :href="option.href">{{ option.text }}</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Vue & Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
+
 <!--  幻燈片  -->
 <!-- Carousel -->
 <div id="demo" class="carousel slide" data-bs-ride="carousel" >
@@ -128,6 +152,6 @@
 </div>
   
 
-
+<script src="main.js"></script>
 </body>
 </html>
