@@ -1,10 +1,33 @@
 /* 導覽列 */
+a.nav-link{
+  color: black !important; /* 預設為黑色 */
+
+}
+
+a.nav-link:hover{
+  color: gray !important; /* 鼠標懸停變成灰色 */
+  background-color: transparent !important; /* 保持背景透明 */
+}
+.navbar-brand{
+  margin-left: 20px; /* 調整左側邊距 */
+  margin-top: 20px; /* 調整上邊距 */
+}
+
+.logo{
+    width: 6%; /* 圖片寬度填滿父容器 */
+    max-width: 600px; /* 限制圖片的最大寬度 */
+    height: auto; /* 高度自動調整以保持比例 */
+}
+
+
+
 /* 下拉選單文字樣式 */
-.dropdown-item {
+.dropdown-item a {
     color: black !important; /* 預設為黑色 */
+    text-decoration: none; /*去除底線 */
   }
   
-  .dropdown-item:hover {
+  .dropdown-item a:hover {
     color: gray !important; /* 鼠標懸停變成灰色 */
     background-color: transparent !important; /* 保持背景透明 */
   }
@@ -25,7 +48,4 @@
 
 /* 資訊卡 */
 
-.mt-3 {
-    display: flex;
-    justify-content: space-around;
-}
+
