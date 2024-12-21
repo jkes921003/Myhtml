@@ -1,22 +1,32 @@
 /* 導覽列 */
-/* 下拉選單文字樣式 */
-.dropdown-item {
+/* 選單文字 */
+  .nav-item a{ 
     color: black !important; /* 預設為黑色 */
+    
+  }
+  .nav-item:hover a{
+    color: rgb(179, 179, 179) !important; /* 鼠標懸停變成灰色 */
+    background-color: transparent !important; /* 保持背景透明 */
+
   }
   
-  .dropdown-item:hover {
-    color: gray !important; /* 鼠標懸停變成灰色 */
+  /* 下拉選單文字樣式 */
+  .dropdown-item a {
+    color: black !important; /* 預設為黑色 */
+      text-decoration: none;/* 消底線 */
+  }
+  .dropdown-item:hover a{
+    color: rgb(179, 179, 179) !important; /* 鼠標懸停變成灰色 */
     background-color: transparent !important; /* 保持背景透明 */
   }
-  
   /* 調整導覽列右側距離 */
   .navbar-nav {
-    margin-right: 20px; /* 調整右側邊距 */
+    margin-right: 40px; /* 調整右側邊距 */
   }
   
   /* 調整下拉選單的位置避免裁切 */
   .dropdown-menu {
-    transform: translateX(-20px); /* 向左調整位置 */
+    transform: translateX(-70px); /* 向左調整位置 */
     max-width: 200px; /* 限制寬度，防止超出螢幕 */
     word-wrap: break-word; /* 遇到過長文字則換行 */
   }
