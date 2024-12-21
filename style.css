@@ -1,22 +1,11 @@
 /* 導覽列 */
-/* 選單文字 */
-  .nav-item a{ 
+/* 下拉選單文字樣式 */
+.dropdown-item {
     color: black !important; /* 預設為黑色 */
-    
-  }
-  .nav-item:hover a{
-    color: rgb(179, 179, 179) !important; /* 鼠標懸停變成灰色 */
-    background-color: transparent !important; /* 保持背景透明 */
-
   }
   
-  /* 下拉選單文字樣式 */
-  .dropdown-item a {
-    color: black !important; /* 預設為黑色 */
-      text-decoration: none;/* 消底線 */
-  }
-  .dropdown-item:hover a{
-    color: rgb(179, 179, 179) !important; /* 鼠標懸停變成灰色 */
+  .dropdown-item:hover {
+    color: gray !important; /* 鼠標懸停變成灰色 */
     background-color: transparent !important; /* 保持背景透明 */
   }
   /* 調整導覽列右側距離 */
@@ -35,7 +24,4 @@
 
 /* 資訊卡 */
 
-.mt-3 {
-    display: flex;
-    justify-content: space-around;
-}
+
