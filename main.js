@@ -59,10 +59,10 @@ const container = Vue.createApp({
           link: "design.html", // 按鈕連結
         },
         {
-          title: "光柵動畫", // 卡片標題
+          title: "資訊科技", // 卡片標題
           text: "Learn about raster animation techniques and creativity.", // 卡片內容文字
           image: "https://picsum.photos/200/200/?gravity=north", // 卡片圖片來源
-          link: "design.html", // 按鈕連結
+          link: "work.html", // 按鈕連結
         },
       ],
     };
