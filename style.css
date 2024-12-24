@@ -4,6 +4,11 @@ a.nav-link{
 
 }
 
+.navbar .nav-link {
+  font-size:1.5rem; /*修改文字大小*/
+}
+
+
 a.nav-link:hover{
   color: rgb(70, 70, 70) !important; /* 鼠標懸停變成灰色 */
   background-color: transparent !important; /* 保持背景透明 */
@@ -13,10 +18,11 @@ a.nav-link:hover{
   margin-top: 20px; /* 調整上邊距 */
 }
 
-.logo{
-    width: 6%; /* 圖片寬度填滿父容器 */
-    max-width: 600px; /* 限制圖片的最大寬度 */
-    height: auto; /* 高度自動調整以保持比例 */
+.logo {
+  width: 120px; /* 設定固定寬度 */
+  max-width: 500px; /* 限制最大寬度 */
+  height: auto; /* 保持比例 */
+  max-height: 120px;  /* 限制最大高度 */
 }
 
 
