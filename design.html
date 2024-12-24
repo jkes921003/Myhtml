@@ -26,7 +26,7 @@
         }
 
         .content {
-            height: 100vh;
+            height: 20vh;
             /* 模擬滾動內容 */
             display: flex;
             align-items: center;
@@ -34,7 +34,7 @@
         }
 
         .block {
-            margin: 50px 0;
+            margin: 80px 0;
         }
 
         .image,
@@ -111,7 +111,7 @@
         <!-- 第一個區塊 -->
         <div class="row block">
             <div class="col-md-6 col-sm-12 text-center">
-                <img src="https://picsum.photos/500" alt="圖片 1" class="image img-fluid" />
+                <img src="img/design/1.png" alt="圖片 1" class="image img-fluid" />
             </div>
             <div class="col-md-6 col-sm-12  ">
                 <div class="text">
@@ -124,7 +124,7 @@
         <!-- 第二個區塊 -->
         <div class="row  block">
             <div class="col-md-6 col-sm-12 text-center">
-                <img src="https://picsum.photos/500" alt="圖片 2" class="image img-fluid" />
+                <img src="img/design/2.jpg" alt="圖片 2" class="image img-fluid" />
             </div>
             <div class="col-md-6 col-sm-12 ">
                 <div class="text">
@@ -137,7 +137,7 @@
         <!-- 第三個區塊 -->
         <div class="row  block">
             <div class="col-md-6 col-sm-12 text-center">
-                <img src="https://picsum.photos/500" alt="圖片 3" class="image img-fluid" />
+                <img src="img/design/3.jpg" alt="圖片 3" class="image img-fluid" />
             </div>
             <div class="col-md-6 col-sm-12 ">
                 <div class="text">
@@ -145,6 +145,89 @@
                     <p>這是第三份資料的文字內容。</p>
                 </div>
             </div>
+        </div>
+
+        <!-- 第四個區塊 -->
+        <div class="row  block">
+            <div class="col-md-6 col-sm-12 text-center">
+                <img src="img/design/4.jpg" alt="圖片 3" class="image img-fluid" />
+            </div>
+            <div class="col-md-6 col-sm-12 ">
+                <div class="text">
+                    <h3>第三段文字</h3>
+                    <p>這是第三份資料的文字內容。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第五個區塊 -->
+        <div class="row  block">
+            <div class="col-md-6 col-sm-12 text-center">
+                <img src="img/design/5.jpg" alt="圖片 3" class="image img-fluid" />
+            </div>
+            <div class="col-md-6 col-sm-12 ">
+                <div class="text">
+                    <h3>第三段文字</h3>
+                    <p>這是第三份資料的文字內容。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第六個區塊 -->
+        <div class="row  block">
+            <div class="col-md-6 col-sm-12 text-center">
+                <img src="img/design/6.jpg" alt="圖片 3" class="image img-fluid" />
+            </div>
+            <div class="col-md-6 col-sm-12 ">
+                <div class="text">
+                    <h3>第三段文字</h3>
+                    <p>這是第三份資料的文字內容。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第七個區塊 -->
+        <div class="row  block">
+            <div class="col-md-6 col-sm-12 text-center">
+                <img src="img/design/7.jpg" alt="圖片 3" class="image img-fluid" />
+            </div>
+            <div class="col-md-6 col-sm-12 ">
+                <div class="text">
+                    <h3>第三段文字</h3>
+                    <p>這是第三份資料的文字內容。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第八個區塊 -->
+        <div class="row  block">
+            <div class="col-md-6 col-sm-12 text-center">
+                <img src="img/design/8.jpg" alt="圖片 3" class="image img-fluid" />
+            </div>
+            <div class="col-md-6 col-sm-12 ">
+                <div class="text">
+                    <h3>第三段文字</h3>
+                    <p>這是第三份資料的文字內容。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第九個區塊 -->
+        <div class="row  block">
+            <div class="col-md-6 col-sm-12 text-center">
+                <img src="img/design/lighaniGIF.gif" alt="圖片 3" class="image img-fluid" />
+            </div>
+            <div class="col-md-6 col-sm-12 ">
+                <div class="text">
+                    <h3>第三段文字</h3>
+                    <p>這是第三份資料的文字內容。</p>
+                </div>
+            </div>
+        </div>
+        <!-- 空行 -->
+        <div class="row  block">
+
+
         </div>
     </div>
 
@@ -165,7 +248,8 @@
                         trigger: block, // 以整個區塊為觸發器
                         start: 'top 80%', // 動畫開始觸發點
                         end: 'top 50%',  // 動畫結束點
-                        scrub: 1         // 讓動畫隨滾動進行
+                        scrub: 1 ,        // 讓動畫隨滾動進行
+                        markers:false
                     }
                 });
 
@@ -178,7 +262,8 @@
                         trigger: block, // 以整個區塊為觸發器
                         start: 'top 70%', // 動畫開始觸發點 (文字稍晚)
                         end: 'top 50%',  // 動畫結束點
-                        scrub: 1         // 讓動畫隨滾動進行
+                        scrub: 1 ,        // 讓動畫隨滾動進行
+                        markers:false
                     }
                 });
             });
@@ -199,7 +284,7 @@
     </div>
   </footer>
 
-  
+
 <script src="main.js"></script>
 </body>
 
