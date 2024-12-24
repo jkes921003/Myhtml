@@ -56,6 +56,12 @@ a.nav-link:hover{
 
   
 /* 幻燈片 */
+.carousel-container {
+  width: 72%; /* 可調整區塊寬度 */
+  margin: 0 auto; /* 使其居中 */
+  padding: 20px; /* 區塊內距 */
+  background-color: #f8f9fa; /* 區塊背景顏色 */
+}
 
 /* 資訊卡 */
 

@@ -69,63 +69,62 @@
     </nav>
   </div>
 
-<!--  幻燈片  -->
-<!-- Carousel -->
-<div id="Carousel">
-  <div id="demo" class="carousel slide" data-bs-ride="carousel">
-    <!-- 圖片切換指示器 -->
-    <div class="carousel-indicators">
-      <!-- 使用 v-for 動態生成指示器按鈕 -->
-      <button
-        v-for="(item, index) in carouselItems"
-        :key="'indicator-' + index"    
-        :class="{ active: index === 0 }"   
-        :data-bs-target="'#demo'"  
-        :data-bs-slide-to="index"  
-      ></button>
-    </div>
-
-    <!-- 幻燈片內容 -->
-    <div class="carousel-inner">
-      <!-- 使用 v-for 動態生成每一張幻燈片 -->
-      <div
-        v-for="(item, index) in carouselItems"
-        :key="'slide-' + index" 
-        :class="['carousel-item', { active: index === 0 }]" 
-      >
-        <h1>{{item.title}}</h1>
-        <img :src="item.image" :alt="item.title" class="d-block w-100" /> 
-
+<!-- 幻燈片區塊 -->
+<div class="carousel-container">
+  <div id="Carousel">
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+      <!-- 圖片切換指示器 -->
+      <div class="carousel-indicators">
+        <button
+          v-for="(item, index) in carouselItems"
+          :key="'indicator-' + index"    
+          :class="{ active: index === 0 }"   
+          :data-bs-target="'#demo'"  
+          :data-bs-slide-to="index"  
+        ></button>
       </div>
+
+      <!-- 幻燈片內容 -->
+      <div class="carousel-inner">
+        <div
+          v-for="(item, index) in carouselItems"
+          :key="'slide-' + index" 
+          :class="['carousel-item', { active: index === 0 }]" 
+        >
+          <h1>{{item.title}}</h1>
+          <img :src="item.image" :alt="item.title" class="d-block w-100" />
+        </div>
+      </div>
+
+      <!-- 左邊控制按鈕 -->
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#demo"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+
+      <!-- 右邊控制按鈕 -->
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#demo"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon"></span>
+      </button>
     </div>
-
-    <!-- 左邊控制按鈕 -->
-    <button
-      class="carousel-control-prev"
-      type="button"
-      data-bs-target="#demo"
-      data-bs-slide="prev"
-    >
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-
-    <!-- 右邊控制按鈕 -->
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-bs-target="#demo"
-      data-bs-slide="next"
-    >
-      <span class="carousel-control-next-icon"></span>
-    </button>
   </div>
 </div>
+
 
   
 <!-- 資訊卡 -->
 
   <div id="container">
-    <div class="container mt-3 ">
+    <div class="container mt-5 ">
       <div class="row">
         <div class=" col-12 col-sm-12 col-md-6  col-lg-4 "  v-for="(card, index) in cards"  :key="'card-' + index">
       <!-- 使用 v-for 動態生成卡片 -->
@@ -154,11 +153,17 @@
 <!-- 聲明區 -->
 <footer class="bg-secondary text-white text-center py-3 mt-5">
   <div class="container">
-      <p class="mb-0">&copy; 2024 RtFantasy. All rights reserved.</p>
-      <a href="#" class="text-white">隱私政策</a> | 
-      <a href="#" class="text-white">服務條款</a>
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+        <p class="mb-0">&copy; 2024 RtFantasy. All rights reserved.</p>
+        <a href="#" class="text-white">隱私政策</a> | 
+        <a href="#" class="text-white">服務條款</a>
+      </div>
+    </div>
   </div>
 </footer>
+
+
 
 <script src="main.js"></script>
 </body>

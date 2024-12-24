@@ -23,15 +23,15 @@ const  Carousel= Vue.createApp({
       carouselItems: [
         {
           title: "", // 標題
-          image: "https://picsum.photos/2560/2560/?gravity=east", // 圖片來源
+          image: "img/design/8.png", // 圖片來源
         },
         {
           title: "", // 標題
-          image: "https://picsum.photos/2560/2560/?gravity=east", // 圖片來源
+          image: "img/photo/8.jpg", // 圖片來源
         },
         {
           title: "", // 標題
-            image: "https://picsum.photos/2560/2560/?gravity=east", // 圖片來源
+            image: "img/photo/13.jpg", // 圖片來源
         },
       ],
     };
@@ -49,19 +49,19 @@ const container = Vue.createApp({
         {
           title: "縮時攝影", // 卡片標題
           text: "Some example text. John Doe is an architect and engineer.", // 卡片內容文字
-          image: "https://picsum.photos/200/200/?gravity=east", // 卡片圖片來源
+          image: "img/work/3.png", // 卡片圖片來源
           link: "photo.html", // 按鈕連結
         },
         {
           title: "偶動畫", // 卡片標題
           text: "Explore the fascinating world of stop-motion animation.", // 卡片內容文字
-          image: "https://picsum.photos/200/200/?gravity=west", // 卡片圖片來源
+          image: "img/work/2.jpg", // 卡片圖片來源
           link: "design.html", // 按鈕連結
         },
         {
           title: "資訊科技", // 卡片標題
           text: "Learn about raster animation techniques and creativity.", // 卡片內容文字
-          image: "https://picsum.photos/200/200/?gravity=north", // 卡片圖片來源
+          image: "img/work/1.png", // 卡片圖片來源
           link: "work.html", // 按鈕連結
         },
       ],
