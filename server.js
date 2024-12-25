@@ -2,7 +2,8 @@
 //install web server package: express >npm install express
 const express = require("express");
 const server = express();
-const cors =require("cors");
+const path =require("path");
+
 
 
 //web root
@@ -110,5 +111,5 @@ server.listen(7414, ()=>{
 })
 
 server.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'rtfantasy.html'));
+  res.sendFile(path.join(__dirname + '/rtfantasy.html'));
 });
