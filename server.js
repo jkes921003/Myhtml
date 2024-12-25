@@ -51,7 +51,7 @@ const PhotoDB =DB.create(__dirname+"/photo.db");
 
 
  ])*/
-      PhotoDB.insert([
+      /*PhotoDB.insert([
         {
           title: "", // 標題
           image: "img/design/1.png", // 圖片來源
@@ -66,7 +66,7 @@ const PhotoDB =DB.create(__dirname+"/photo.db");
         },
     
     
-     ])
+     ])*/
 
 server.get("/services", (req, res)=>{
     //DB find
