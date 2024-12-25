@@ -1,21 +1,24 @@
 //install: node js
 //install web server package: express >npm install express
-var express = require("express");
-var server = express();
+const express = require("express");
+const server = express();
+const cors =require("cors");
 
 
 //web root
 server.use(express.static(__dirname));
 
-var fileUpload = require("express-fileupload");
+const fileUpload = require("express-fileupload");
 server.use(fileUpload({defCharset:'utf8', defParamCharset:'utf8'}));
 
 
-var DB = require("nedb-promises");
-var ProfolioDB = DB.create(__dirname+"/profolio.db");
-var ContactDB = DB.create(__dirname+"/contact.db");
+const DB = require("nedb-promises");
+const ProfolioDB = DB.create(__dirname+"/profolio.db");
+const ContactDB = DB.create(__dirname+"/contact.db");
 const PhotoDB =DB.create(__dirname+"/photo.db");
- 
+
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
 
  /*ProfolioDB.insert([
     {
