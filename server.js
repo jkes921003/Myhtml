@@ -16,7 +16,7 @@ server.use(fileUpload({defCharset:'utf8', defParamCharset:'utf8'}));
 var DB = require("nedb-promises");
 var ProfolioDB = DB.create(__dirname+"/profolio.db");
 var ContactDB = DB.create(__dirname+"/contact.db");
- const PhotoDB =DB.create(__dirname+"/photo.db");
+const PhotoDB =DB.create(__dirname+"/photo.db");
  
 
  /*ProfolioDB.insert([
@@ -51,6 +51,22 @@ var ContactDB = DB.create(__dirname+"/contact.db");
 
 
  ])*/
+      PhotoDB.insert([
+        {
+          title: "", // 標題
+          image: "img/design/1.png", // 圖片來源
+        },
+        {
+          title: "", // 標題
+          image: "img/photo/8.jpg", // 圖片來源
+        },
+        {
+          title: "", // 標題
+            image: "img/photo/13.jpg", // 圖片來源
+        },
+    
+    
+     ])
 
 server.get("/services", (req, res)=>{
     //DB find
@@ -72,11 +88,22 @@ server.get("/profolio", (req,res)=>{
       })
 })
 
+server.get("/photo", (req,res)=>{
+  //DB
+  PhotoDB.find({}).then(results=>{
+    if(results != null){
+         res.send(results);
+    }else{
+        res.send("Error!");
+    }
+  })
+})
+
 server.post("/contact_me", (req,res)=>{
      ContactDB.insert(req.body);
      res.redirect("/#contact");
 })
 
 server.listen(208, ()=>{
-    console.log("Server is running at port 80.");
+    console.log("Server is running at port 208.");
 })

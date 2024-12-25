@@ -20,22 +20,23 @@ const  Carousel= Vue.createApp({
   data() {
     return {
       // 定義幻燈片的資料
-      carouselItems: [
-        {
-          title: "", // 標題
-          image: "img/design/1.png", // 圖片來源
-        },
-        {
-          title: "", // 標題
-          image: "img/photo/8.jpg", // 圖片來源
-        },
-        {
-          title: "", // 標題
-            image: "img/photo/13.jpg", // 圖片來源
-        },
-      ],
+      carouselItems: [],
     };
-    
+  },
+  mounted() {
+    // 使用 jQuery 的 Ajax 請求
+    $.ajax({
+      url: "/photo",
+      method: "get",
+      dataType: "json",
+      success: (results) => {
+        // 更新 幻燈片 資料
+        this.carouselItems = results;
+      },
+      error: (error) => {
+        console.error("Error fetching data:", error);
+      },
+    });
   },
 });
 
