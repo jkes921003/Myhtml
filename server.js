@@ -5,7 +5,7 @@ var server = express();
 var bodyParser = require("body-parser");
 
 //web root
-server.use(express.static(__dirname+"/AgencyProject"));
+server.use(express.static(__dirname));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded());
 
@@ -16,16 +16,41 @@ server.use(fileUpload({defCharset:'utf8', defParamCharset:'utf8'}));
 var DB = require("nedb-promises");
 var ProfolioDB = DB.create(__dirname+"/profolio.db");
 var ContactDB = DB.create(__dirname+"/contact.db");
+ const PhotoDB =DB.create(__dirname+"/photo.db");
  
 
-// ProfolioDB.insert([
-//     { modal: "#portfolioModal1", imgSrc: "modalroundicons.png", heading: "Round Icons", text: "Graphic Design" },
-//     { modal: "#portfolioModal2", imgSrc: "startup-framework.png", heading: "Startup Framework", text: "Website Design" },
-//     { modal: "#portfolioModal3", imgSrc: "treehouse.png", heading: "Treehouse", text: "Website Design" },
-//     { modal: "#portfolioModal1", imgSrc: "roundicons.png", heading: "Round Icons", text: "Graphic Design" },
-//     { modal: "#portfolioModal2", imgSrc: "startup-framework.png", heading: "Startup Framework", text: "Website Design" },
-//     { modal: "#portfolioModal3", imgSrc: "treehouse.png", heading: "Treehouse", text: "Website Design" }
-// ])
+ /*ProfolioDB.insert([
+    {
+        modal:"card1",
+        title: "縮時攝影", // 卡片標題
+        text: "Some example text. John Doe is an architect and engineer.", // 卡片內容文字
+        image: "img/work/3.png", // 卡片圖片來源
+        link: "photo.html", // 按鈕連結
+      },
+      {
+        modal:"card2",
+        title: "偶動畫", // 卡片標題
+        text: "Explore the fascinating world of stop-motion animation.", // 卡片內容文字
+        image: "img/work/2.jpg", // 卡片圖片來源
+        link: "design.html", // 按鈕連結
+      },
+      {
+        modal:"card3",
+        title: "資訊科技", // 卡片標題
+        text: "Learn about raster animation techniques and creativity.", // 卡片內容文字
+        image: "img/work/1.png", // 卡片圖片來源
+        link: "work.html", // 按鈕連結
+      },
+      {
+        modal:"card3",
+        title: "資訊科技", // 卡片標題
+        text: "Learn about raster animation techniques and creativity.", // 卡片內容文字
+        image: "img/work/1.png", // 卡片圖片來源
+        link: "work.html", // 按鈕連結
+      },
+
+
+ ])*/
 
 server.get("/services", (req, res)=>{
     //DB find
@@ -52,6 +77,6 @@ server.post("/contact_me", (req,res)=>{
      res.redirect("/#contact");
 })
 
-server.listen(80, ()=>{
+server.listen(208, ()=>{
     console.log("Server is running at port 80.");
 })

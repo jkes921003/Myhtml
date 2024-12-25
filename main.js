@@ -23,7 +23,7 @@ const  Carousel= Vue.createApp({
       carouselItems: [
         {
           title: "", // 標題
-          image: "img/design/8.png", // 圖片來源
+          image: "img/design/1.png", // 圖片來源
         },
         {
           title: "", // 標題
@@ -35,6 +35,7 @@ const  Carousel= Vue.createApp({
         },
       ],
     };
+    
   },
 });
 
@@ -45,27 +46,23 @@ const container = Vue.createApp({
   data() {
     return {
       // 定義卡片的資料
-      cards: [
-        {
-          title: "縮時攝影", // 卡片標題
-          text: "Some example text. John Doe is an architect and engineer.", // 卡片內容文字
-          image: "img/work/3.png", // 卡片圖片來源
-          link: "photo.html", // 按鈕連結
-        },
-        {
-          title: "偶動畫", // 卡片標題
-          text: "Explore the fascinating world of stop-motion animation.", // 卡片內容文字
-          image: "img/work/2.jpg", // 卡片圖片來源
-          link: "design.html", // 按鈕連結
-        },
-        {
-          title: "資訊科技", // 卡片標題
-          text: "Learn about raster animation techniques and creativity.", // 卡片內容文字
-          image: "img/work/1.png", // 卡片圖片來源
-          link: "work.html", // 按鈕連結
-        },
-      ],
+      cards: [],
     };
+  },
+  mounted() {
+    // 使用 jQuery 的 Ajax 請求
+    $.ajax({
+      url: "/profolio",
+      method: "get",
+      dataType: "json",
+      success: (results) => {
+        // 更新 cards 資料
+        this.cards = results;
+      },
+      error: (error) => {
+        console.error("Error fetching data:", error);
+      },
+    });
   },
 });
 
