@@ -31,7 +31,7 @@ const  Carousel= Vue.createApp({
       dataType: "json",
       success: (results) => {
         // 更新 幻燈片 資料
-        this.carouselItems = results;
+        this.carouselItems= results;
       },
       error: (error) => {
         console.error("Error fetching data:", error);
