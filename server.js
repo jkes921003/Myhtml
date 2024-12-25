@@ -14,7 +14,7 @@ server.use(fileUpload({defCharset:'utf8', defParamCharset:'utf8'}));
 
 const DB = require("nedb-promises");
 const ProfolioDB = DB.create(__dirname+"/profolio.db");
-const ContactDB = DB.create(__dirname+"/contact.db");
+// const ContactDB = DB.create(__dirname+"/contact.db");
 const PhotoDB =DB.create(__dirname+"/photo.db");
 
 server.use(express.json());
@@ -100,11 +100,15 @@ server.get("/photo", (req,res)=>{
   })
 })
 
-server.post("/contact_me", (req,res)=>{
-     ContactDB.insert(req.body);
-     res.redirect("/#contact");
-})
+// server.post("/contact_me", (req,res)=>{
+//      ContactDB.insert(req.body);
+//      res.redirect("/#contact");
+// })
 
 server.listen(7414, ()=>{
     console.log("Server is running at port 7414.");
 })
+
+server.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'rtfantasy.html'));
+});
