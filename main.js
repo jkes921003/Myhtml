@@ -77,15 +77,13 @@ const about = Vue.createApp({
   data() {
     return {
       aboutMe: {
-        name: "你的名字",
-        tagline: "一位熱愛學習的開發者",
-        photo: "img/me.jpg", // 替換為你的照片連結
-        bio: "這裡是你的自我介紹，可以描述你的背景、興趣和夢想。",
-        contact: {
-          email: "youremail@example.com",
-          phone: "123-456-7890",
-          location: "台北, 台灣"
-        }
+        name: "王元俊",
+        tagline: "​一個學習中的創作者",
+        motto:"座右銘: Life is so hard but Fantastic. ",
+        photo: "img/me.jpg", 
+        bio: "就讀:台中科技大學多媒體設計系 ",
+        bio2:"興趣：玩遊戲、烹飪、畫畫、唱歌、拍天空、看動漫、看小說......",
+        bio3:"持有證照：數位電子乙級、工業電子丙級、電腦軟體應用丙級",
       }
     };
   }

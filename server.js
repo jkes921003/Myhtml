@@ -21,7 +21,7 @@ const PhotoDB =DB.create(__dirname+"/photo.db");
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
- /*ProfolioDB.insert([
+ ProfolioDB.insert([
     {
         modal:"card1",
         title: "縮時攝影", // 卡片標題
@@ -39,11 +39,11 @@ server.use(express.urlencoded({ extended: true }));
       {
         modal:"card3",
         title: "資訊科技", // 卡片標題
-        text: "資訊課程用以簡單介紹路由器為何而做的影片", // 卡片內容文字
+        text: "資訊課程以簡單介紹路由器為何而做的影片", // 卡片內容文字
         image: "img/work/1.png", // 卡片圖片來源
         link: "https://youtu.be/yA3PgbTVw7s?si=z_nnIGXE_6bJK_q0", // 按鈕連結
       },
- ])*/
+ ])
 
       
       /*PhotoDB.insert([
