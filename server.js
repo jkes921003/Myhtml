@@ -21,7 +21,7 @@ const PhotoDB =DB.create(__dirname+"/photo.db");
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
- ProfolioDB.insert([
+ /*ProfolioDB.insert([
     {
         modal:"card1",
         title: "縮時攝影", // 卡片標題
@@ -43,7 +43,7 @@ server.use(express.urlencoded({ extended: true }));
         image: "img/work/1.png", // 卡片圖片來源
         link: "https://youtu.be/yA3PgbTVw7s?si=z_nnIGXE_6bJK_q0", // 按鈕連結
       },
- ])
+ ])*/
 
       
       /*PhotoDB.insert([
