@@ -32,7 +32,7 @@ server.use(express.urlencoded({ extended: true }));
       {
         modal:"card2",
         title: "偶動畫", // 卡片標題
-        text: "基礎設計課程用縮時攝影的方式一幀一幀的拍出來在剪輯成影片", // 卡片內容文字
+        text: "基礎設計課程利用相機將拍出來的照片剪輯成影片", // 卡片內容文字
         image: "img/work/2.jpg", // 卡片圖片來源
         link: "https://youtu.be/Pc1_UenNoIw?si=n7DuljiJAyBUMFxC", // 按鈕連結
       },
