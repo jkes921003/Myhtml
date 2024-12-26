@@ -79,11 +79,13 @@ const about = Vue.createApp({
       aboutMe: {
         name: "王元俊",
         tagline: "​一個學習中的創作者",
-        motto:"座右銘: Life is so hard but Fantastic. ",
+        motto:"座右銘：Life is so hard but Fantastic. ",
         photo: "img/me.jpg", 
-        bio: "就讀:台中科技大學多媒體設計系 ",
+        bio: "就讀：台中科技大學多媒體設計系 ",
         bio2:"興趣：玩遊戲、烹飪、畫畫、唱歌、拍天空、看動漫、看小說......",
         bio3:"持有證照：數位電子乙級、工業電子丙級、電腦軟體應用丙級",
+        bio4:"個性開朗善於溝通與表達，對於邏輯以及現況的掌握有清晰的思維。",
+        bio5:"手作能力出色，在工具使用方式的學習上非常快速，可將剛學會的手作技巧運用在自己正在製作的作品。",
       }
     };
   }
