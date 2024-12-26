@@ -68,3 +68,27 @@ const container = Vue.createApp({
 });
 
 container.mount("#container");
+
+
+
+// about頁面
+
+const about = Vue.createApp({
+  data() {
+    return {
+      aboutMe: {
+        name: "你的名字",
+        tagline: "一位熱愛學習的開發者",
+        photo: "img/me.jpg", // 替換為你的照片連結
+        bio: "這裡是你的自我介紹，可以描述你的背景、興趣和夢想。",
+        contact: {
+          email: "youremail@example.com",
+          phone: "123-456-7890",
+          location: "台北, 台灣"
+        }
+      }
+    };
+  }
+});
+
+about.mount("#about");

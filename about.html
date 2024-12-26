@@ -68,6 +68,25 @@
       </div>
     </nav>
   </div>
+  <div id="about" class="container mt-5">
+    <div class="row align-items-center">
+      <!-- 左邊：照片 -->
+      <div class="col-md-6 text-center">
+        <img :src="aboutMe.photo" alt="My Photo" class="img-fluid " style="max-width: 300px;">
+      </div>
+      <!-- 右邊：介紹 -->
+      <div class="col-md-6">
+        <h1 class="display-4">{{ aboutMe.name }}</h1>
+        <p class="lead">{{ aboutMe.tagline }}</p>
+        <p>{{ aboutMe.bio }}</p>
+        <ul class="list-unstyled">
+          <li><strong>Email:</strong> {{ aboutMe.contact.email }}</li>
+          <li><strong>Phone:</strong> {{ aboutMe.contact.phone }}</li>
+          <li><strong>Location:</strong> {{ aboutMe.contact.location }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
 
   <script src="main.js"></script>
