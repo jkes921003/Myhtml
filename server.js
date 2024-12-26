@@ -21,38 +21,32 @@ const PhotoDB =DB.create(__dirname+"/photo.db");
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
- /*ProfolioDB.insert([
+ ProfolioDB.insert([
     {
         modal:"card1",
         title: "縮時攝影", // 卡片標題
-        text: "Some example text. John Doe is an architect and engineer.", // 卡片內容文字
+        text: "攝影課用相機定時拍出的照片剪輯成影片", // 卡片內容文字
         image: "img/work/3.png", // 卡片圖片來源
-        link: "photo.html", // 按鈕連結
+        link: "https://youtu.be/tG5fRMMoAEE?si=MyI58HiIThFf0VZO", // 按鈕連結
       },
       {
         modal:"card2",
         title: "偶動畫", // 卡片標題
-        text: "Explore the fascinating world of stop-motion animation.", // 卡片內容文字
+        text: "基礎設計課程用縮時攝影的方式一幀一幀的拍出來在剪輯成影片", // 卡片內容文字
         image: "img/work/2.jpg", // 卡片圖片來源
-        link: "design.html", // 按鈕連結
+        link: "https://youtu.be/Pc1_UenNoIw?si=n7DuljiJAyBUMFxC", // 按鈕連結
       },
       {
         modal:"card3",
         title: "資訊科技", // 卡片標題
-        text: "Learn about raster animation techniques and creativity.", // 卡片內容文字
+        text: "資訊課程用以簡單介紹路由器為何而做的影片", // 卡片內容文字
         image: "img/work/1.png", // 卡片圖片來源
-        link: "work.html", // 按鈕連結
+        link: "https://youtu.be/yA3PgbTVw7s?si=z_nnIGXE_6bJK_q0", // 按鈕連結
       },
-      {
-        modal:"card3",
-        title: "資訊科技", // 卡片標題
-        text: "Learn about raster animation techniques and creativity.", // 卡片內容文字
-        image: "img/work/1.png", // 卡片圖片來源
-        link: "work.html", // 按鈕連結
-      },
+      
 
 
- ])*/
+ ])
       /*PhotoDB.insert([
         {
           title: "", // 標題
