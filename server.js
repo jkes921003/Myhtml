@@ -118,7 +118,7 @@ server.use(express.urlencoded({ extended: true }));
   },
 
 ])*/
-designDB.insert([
+  /*designDB.insert([
     {
     id:"1",
     title: "雜誌型態", // 標題
@@ -174,7 +174,7 @@ designDB.insert([
     imgsrc: "img/logo.png", // 圖片來源
   },
   
-  ])
+  ])*/
   /*workDB.insert([
     {
     id:"1",
