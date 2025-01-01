@@ -132,7 +132,7 @@ server.use(express.urlencoded({ extended: true }));
       imgsrc: "img/photo/1.jpg", // 圖片來源
       },
   ])*/
-  workDB.insert([
+  /*workDB.insert([
     {
     id:"1",
     title: "資訊科技", // 標題
@@ -151,7 +151,7 @@ server.use(express.urlencoded({ extended: true }));
       text:"此作品為攝影課用相機定時拍出的照片剪輯成影片，在這課程中我學習到了非常多的東西，例如：取景、參數調整、攝影角度、時間......等，這些因素都會影響到拍出來以及剪輯出來的成品，也因為這次的縮時攝影製作，讓我深深愛上相機攝影。",
       imgsrc: "img/work/3.png", // 圖片來源
       },
-  ])
+  ])*/
 
   /*ProfolioDB.insert([
     {
