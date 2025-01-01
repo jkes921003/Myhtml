@@ -106,139 +106,26 @@
         <h1>基礎設計</h1>
     </div>
     <!-- 空行 -->
-    <div class="row  block">
+  <div class="row  block">
+</div>
 
-
-    </div>
-
-
+<div id="design">
     <div class="container">
-        <!-- 第一個區塊 -->
-        <div class="row block">
+        <div class="row block"  v-for="design in designs" :key="design.id">
             <div class="col-md-6 col-sm-12 text-center">
-                <img src="img/design/1.png" alt="雜誌型態" class="image img-fluid" />
-            </div>
-            <div class="col-md-6 col-sm-12 mt-3 ">
-                <div class="text">
-                    <h3>雜誌型態</h3>
-                    <p>此作品為模擬一般市面上的雜誌風格，做出屬於自己的雜誌封面。內容中我使用到了與自己相關的事務，如：座右銘、吉他、科系、生日以及自我介紹，並且使用了之前攝影的照片加以設計。
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 第二個區塊 -->
-        <div class="row  block">
-            <div class="col-md-6 col-sm-12 text-center">
-                <img src="img/design/2.jpg" alt="色彩學" class="image img-fluid" />
+                <img :src="design.imgsrc" class="image img-fluid" />
             </div>
             <div class="col-md-6 col-sm-12 mt-3">
                 <div class="text">
-                    <h3>色彩調和</h3>
-                    <p>此作品為色彩學中色彩調和的作品，用意是在練習色彩相關的知識。如：色相、色調、色度、明度等......，而在此作品中我想利用顏色，來將此圖的立體感呈現出來。
-                    </p>
+                    <h3>{{design.title}}</h3>
+                    <p>{{design.text}}</p>
                 </div>
             </div>
         </div>
-
-        <!-- 第三個區塊 -->
-        <div class="row  block">
-            <div class="col-md-6 col-sm-12 text-center">
-                <img src="img/design/3.jpg" alt="色彩學" class="image img-fluid" />
-            </div>
-            <div class="col-md-6 col-sm-12 mt-3">
-                <div class="text">
-                    <h3>色彩調和</h3>
-                    <p>此作品為色彩學中色彩調和的作品，用意是在練習色彩相關的知識。如：色相、色調、色度、明度等......，而本作品想利用顏色來呈現出圖案的透視感，讓圖案並不只是平面的感覺。
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 第四個區塊 -->
-        <div class="row  block">
-            <div class="col-md-6 col-sm-12 text-center">
-                <img src="img/design/5.jpg" alt="基礎設計型態要素" class="image img-fluid" />
-            </div>
-            <div class="col-md-6 col-sm-12 mt-3">
-                <div class="text">
-                    <h3>型態要素</h3>
-                    <p>此作品為基礎設計課程中的型態要素，利用點、線、面來呈現物體的樣子。而在此作品中，我利用不同的排列組合，將海豚拼成不同的樣子，在這之中我覺得最困難的是該如何在有限的排列組合中，拼出不同的圖案。
-                    
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 第五個區塊 -->
-        <div class="row  block">
-            <div class="col-md-6 col-sm-12 text-center">
-                <img src="img/design/6.jpg" alt="基礎設計質感模擬" class="image img-fluid" />
-            </div>
-            <div class="col-md-6 col-sm-12 mt-3">
-                <div class="text">
-                    <h3>質感模擬</h3>
-                    <p>此作品為基礎設計中的質感模擬，利用不同的材質將其填入自己想放的位置，以達成不同質感拼出的圖案，在這之中我用到了許多的材質，如：貝殼、蜂巢、石板、龜殼、磚頭、西瓜、螺、香菇、細胞、蜘蛛網......等。</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 第六個區塊 -->
-        <div class="row  block">
-            <div class="col-md-6 col-sm-12 text-center">
-                <img src="img/design/7.jpg" alt="便利貼自畫像" class="image img-fluid" />
-            </div>
-            <div class="col-md-6 col-sm-12 mt-3">
-                <div class="text">
-                    <h3>便利貼自畫像</h3>
-                    <p>此作品是將自己的照片轉成pixel圖，並在牆上使用便利貼拼出與製作出來的pixel圖一致的圖案。</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 第七個區塊 -->
-        <div class="row  block">
-            <div class="col-md-6 col-sm-12 text-center">
-                <img src="img/design/8.jpg" alt="基礎設計裝置藝術" class="image img-fluid" />
-            </div>
-            <div class="col-md-6 col-sm-12 mt-3">
-                <div class="text">
-                    <h3>裝置藝術</h3>
-                    <p>此作品為基礎設計中的裝置藝術，在此裝置中我們使用了木棒、玻璃紙、塑膠球、麻繩、紙板以及瓦楞板......等製成的。<br>而作品理念為『每個人都像是正在尋找自己目標的旅人，這個作品大大小小的方塊如同村落的小屋子，而中間最大且有菱形燈光的是村落的中心點，不管是什麼樣的旅人，這個村落永遠會發散著光芒，迎接所有疲憊、失去方向的旅人』。</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 第八個區塊 -->
-        <div class="row  block">
-            <div class="col-md-6 col-sm-12 text-center">
-                <img src="img/design/lighaniGIF.gif" alt="基礎設計光柵動畫" class="image img-fluid" />
-            </div>
-            <div class="col-md-6 col-sm-12 mt-3">
-                <div class="text">
-                    <h3>光柵動畫</h3>
-                    <p>此作品為基礎設計中的光柵動畫，利用人眼視覺暫留現象，即人眼看到一幅畫面後，會留下一定的時間印象，即使畫面消失了，人眼還會保留這個畫面的影像，這就產生了連續性的視覺效果。</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 第九個區塊 -->
-        <div class="row  block">
-            <div class="col-md-6 col-sm-12 text-center">
-                <img src="img/logo.png" alt="logo設計" class="image img-fluid" />
-            </div>
-            <div class="col-md-6 col-sm-12 mt-3">
-                <div class="text">
-                    <h3>Logo設計</h3>
-                    <p>此作品為色彩學中的Logo設計，主要為設計一個屬於自己的Logo，在這個Logo中我加入了一些與自己相關的元素，如：電子、芯片......等。</p>
-                </div>
-            </div>
-        </div>
-
+    </div>
+</div>
         <!-- 空行 -->
         <div class="row  block">
-
-
         </div>
     </div>
 
@@ -259,8 +146,8 @@
                         trigger: block, // 以整個區塊為觸發器
                         start: 'top 80%', // 動畫開始觸發點
                         end: 'top 50%',  // 動畫結束點
-                        scrub: 1 ,        // 讓動畫隨滾動進行
-                        markers:false
+                        scrub: 1,        // 讓動畫隨滾動進行
+                        markers: false
                     }
                 });
 
@@ -273,8 +160,8 @@
                         trigger: block, // 以整個區塊為觸發器
                         start: 'top 70%', // 動畫開始觸發點 (文字稍晚)
                         end: 'top 50%',  // 動畫結束點
-                        scrub: 1 ,        // 讓動畫隨滾動進行
-                        markers:false
+                        scrub: 1,        // 讓動畫隨滾動進行
+                        markers: false
                     }
                 });
             });
@@ -282,22 +169,24 @@
     </script>
 
 
-<!-- 聲明區 -->
-<footer class="bg-secondary text-white text-center py-3 mt-5">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
-          <p class="mb-0">&copy; 2024 RtFantasy. All rights reserved.</p>
-          <a href="#" class="text-white">隱私政策</a> | 
-          <a href="#" class="text-white">服務條款</a> &nbsp;
-          <a href="#" class="text-white">聯絡資訊：921003jun@gmail.com</a>
+    <!-- 聲明區 -->
+    <footer class="bg-secondary text-white text-center py-3 mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                    <p class="mb-0">&copy; 2024 RtFantasy. All rights reserved.</p>
+                    <a href="#" class="text-white">隱私政策</a> |
+                    <a href="#" class="text-white">服務條款</a> &nbsp;
+                    <a href="#" class="text-white">聯絡資訊：921003jun@gmail.com</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
-
-<script src="main.js"></script>
+    
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

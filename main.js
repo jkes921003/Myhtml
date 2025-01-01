@@ -137,7 +137,7 @@ const works = Vue.createApp({
       method: "get",
       dataType: "json",
       success: (results) => {
-        // 更新 cards 資料
+        // 更新 works 資料
         this.works = results;
       },
       error: (error) => {
@@ -147,7 +147,7 @@ const works = Vue.createApp({
   },
 });
 
-photos.mount("#work");
+works.mount("#work");
 
 //designs
 const designs = Vue.createApp({
@@ -174,4 +174,4 @@ const designs = Vue.createApp({
   },
 });
 
-photos.mount("#design");
+designs.mount("#design");
