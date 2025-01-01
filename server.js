@@ -19,6 +19,8 @@ const ProfolioDB = DB.create(__dirname+"/profolio.db");
 const PhotoDB =DB.create(__dirname+"/photo.db");
 
 const photographyDB =DB.create(__dirname+"/photography.db");
+const designDB =DB.create(__dirname+"/design.db");
+const workDB =DB.create(__dirname+"/work.db");
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
@@ -116,7 +118,40 @@ server.use(express.urlencoded({ extended: true }));
   },
 
 ])*/
-
+  /*designDB.insert([
+    {
+    id:"1",
+    title: "散景", // 標題
+    text:"此作品為攝影課的散景練習，我在此作品中利用了兩面鏡子，並將相機以定時拍照的方式拍攝，目的是想利用散景的方式呈現鏡子中只有相機一個物品。",
+    imgsrc: "img/photo/1.jpg", // 圖片來源
+    },
+    {
+      id:"1",
+      title: "散景", // 標題
+      text:"此作品為攝影課的散景練習，我在此作品中利用了兩面鏡子，並將相機以定時拍照的方式拍攝，目的是想利用散景的方式呈現鏡子中只有相機一個物品。",
+      imgsrc: "img/photo/1.jpg", // 圖片來源
+      },
+  ])*/
+  /*workDB.insert([
+    {
+    id:"1",
+    title: "資訊科技", // 標題
+    text:"此作品為資訊課程中以簡單介紹路由器為何而做的影片，當時製作時沒有甚麼概念，因為不知道怎麼將複雜的東西講解，而且還要以簡單的方式描述，所以當時查了許多的影片以及文獻，而這部影片也是我在高中，首次運用這樣的剪輯方式製作出來的影片。",
+    imgsrc: "img/work/1.png", // 圖片來源
+    },
+    {
+      id:"2",
+      title: "偶動畫", // 標題
+      text:"此作品為基礎設計課程中利用相機，將拍出來的照片剪輯成影片，當時了解到製作偶動畫其實跟拍攝縮時攝影差不多，都是以多張的照片一幀一幀的拼起來，並剪輯成影片，在這課程中因為我們的玩偶決定以羊毛氈製作，所以我還學習了羊毛氈的製作方式。",
+      imgsrc: "img/work/2.jpg", // 圖片來源
+      },
+    {
+      id:"3",
+      title: "縮時攝影", // 標題
+      text:"此作品為攝影課用相機定時拍出的照片剪輯成影片，在這課程中我學習到了非常多的東西，例如：取景、參數調整、攝影角度、時間......等，這些因素都會影響到拍出來以及剪輯出來的成品，也因為這次的縮時攝影製作，讓我深深愛上相機攝影。",
+      imgsrc: "img/work/3.png", // 圖片來源
+      },
+  ])*/
 
   /*ProfolioDB.insert([
     {
@@ -196,6 +231,28 @@ server.get("/photo", (req,res)=>{
 server.get("/photography", (req,res)=>{
   //DB
   photographyDB.find({}).then(results=>{
+    if(results != null){
+         res.send(results);
+    }else{
+        res.send("Error!");
+    }
+  })
+})
+
+server.get("/design", (req,res)=>{
+  //DB
+  designDB.find({}).then(results=>{
+    if(results != null){
+         res.send(results);
+    }else{
+        res.send("Error!");
+    }
+  })
+})
+
+server.get("/work", (req,res)=>{
+  //DB
+  workDB.find({}).then(results=>{
     if(results != null){
          res.send(results);
     }else{

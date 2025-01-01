@@ -120,3 +120,58 @@ const photos = Vue.createApp({
 });
 
 photos.mount("#photo");
+
+
+//works
+const works = Vue.createApp({
+  data() {
+    return {
+      // 定義卡片的資料
+      works: [],
+    };
+  },
+  mounted() {
+    // 使用 jQuery 的 Ajax 請求
+    $.ajax({
+      url: "/work",
+      method: "get",
+      dataType: "json",
+      success: (results) => {
+        // 更新 cards 資料
+        this.works = results;
+      },
+      error: (error) => {
+        console.error("Error fetching data:", error);
+      },
+    });
+  },
+});
+
+photos.mount("#work");
+
+//designs
+const designs = Vue.createApp({
+  data() {
+    return {
+      // 定義卡片的資料
+      designs: [],
+    };
+  },
+  mounted() {
+    // 使用 jQuery 的 Ajax 請求
+    $.ajax({
+      url: "/design",
+      method: "get",
+      dataType: "json",
+      success: (results) => {
+        // 更新 cards 資料
+        this.designs = results;
+      },
+      error: (error) => {
+        console.error("Error fetching data:", error);
+      },
+    });
+  },
+});
+
+photos.mount("#design");
