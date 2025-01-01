@@ -92,3 +92,31 @@ const about = Vue.createApp({
 });
 
 about.mount("#about");
+
+
+//photos
+const photos = Vue.createApp({
+  data() {
+    return {
+      // 定義卡片的資料
+      photos: [],
+    };
+  },
+  mounted() {
+    // 使用 jQuery 的 Ajax 請求
+    $.ajax({
+      url: "/photography",
+      method: "get",
+      dataType: "json",
+      success: (results) => {
+        // 更新 cards 資料
+        this.photos = results;
+      },
+      error: (error) => {
+        console.error("Error fetching data:", error);
+      },
+    });
+  },
+});
+
+photos.mount("#photo");

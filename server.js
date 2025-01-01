@@ -18,8 +18,34 @@ const ProfolioDB = DB.create(__dirname+"/profolio.db");
 // const ContactDB = DB.create(__dirname+"/contact.db");
 const PhotoDB =DB.create(__dirname+"/photo.db");
 
+const photographyDB =DB.create(__dirname+"/photography.db");
+
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
+
+/*photographyDB.insert([
+  {
+    id:"1",
+    title: "散景", // 標題
+    text:"此作品為攝影課的散景練習，我在此作品中利用了兩面鏡子，並將相機以定時拍照的方式拍攝，目的是想利用散景的方式呈現鏡子中只有相機一個物品。",
+    imgsrc: "img/photo/1.jpg", // 圖片來源
+  },
+  {
+    id:"2",
+    title: "Lightroom修圖", // 標題
+    text:"此作品為Adobe Lightroom軟體修圖練習，我在此作品中將原本的圖像調色，使其色溫改變，目的是想使圖片呈現像是動畫裡面的模樣。",
+    imgsrc: "img/photo/2.jpg", // 圖片來源
+  },
+  {
+    id:"3",
+    title: "Lightroom修圖", // 標題
+    text:"此作品為Adobe Lightroom軟體修圖練習，我在此作品中將圖片的色溫以及曝光度做調整，目的是想讓圖像呈現出繁華的樣子。",
+    imgsrc: "img/photo/3.jpg", // 圖片來源
+  },
+
+
+])*/
+
 
  /*ProfolioDB.insert([
     {
@@ -86,6 +112,19 @@ server.get("/profolio", (req,res)=>{
 server.get("/photo", (req,res)=>{
   //DB
   PhotoDB.find({}).then(results=>{
+    if(results != null){
+         res.send(results);
+    }else{
+        res.send("Error!");
+    }
+  })
+})
+
+//攝影DB
+
+server.get("/photography", (req,res)=>{
+  //DB
+  photographyDB.find({}).then(results=>{
     if(results != null){
          res.send(results);
     }else{

@@ -7,6 +7,7 @@
 
     <!-- vue -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="main.js"></script>
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <!-- GSAP ScrollTrigger -->
@@ -14,8 +15,12 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+
     <!-- css連結 -->
     <link rel="stylesheet" href="style.css">
+
+
 
     <title>photo 攝影</title>
     <style>
@@ -39,12 +44,13 @@
 
         .image,
         .text {
-            opacity: 0; /* 初始透明度 */
-            transform: translateY(100px); /* 初始位置 */
-            font-size: 20px;/* 文字大小 */
+            opacity: 0;
+            /* 初始透明度 */
+            transform: translateY(100px);
+            /* 初始位置 */
+            font-size: 20px;
+            /* 文字大小 */
         }
-
-       
     </style>
 </head>
 
@@ -52,331 +58,297 @@
 
 
     <!-- 導覽列 navbar  -->
-<body>
-    <div id="app">
-      <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-        <div class="container-fluid">
-          <img class="logo" src="img/logo.png" alt="logo" >
-          <a class="navbar-brand" href="rtfantasy.html">RtFantasy</a>
-          <button 
-            class="navbar-toggler" 
-            type="button" 
-            data-bs-toggle="collapse" 
-            data-bs-target="#navbarNav" 
-            aria-controls="navbarNav" 
-            aria-expanded="false" 
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <!-- 普通連結 -->
-              <li class="nav-item" v-for="(link, index) in navLinks" :key="index">
-                <a class="nav-link" :href="link.href">{{ link.text }}</a>
-              </li>
-  
-              <!-- 下拉式選單 -->
-              <li class="nav-item dropdown">
-                <a 
-                  class="nav-link dropdown-toggle" 
-                  href="#" 
-                  id="navbarDropdown" 
-                  role="button" 
-                  data-bs-toggle="dropdown" 
-                  aria-expanded="false">
-                  作品
-                </a>
-                <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
-                  <li 
-                    class="dropdown-item" 
-                    v-for="(option, index) in dropdownOptions" 
-                    :key="'dropdown-' + index">
-                    <a :href="option.href">{{ option.text }}</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
 
-    <!-- 作品內容 -->
-    <div class="content bg-light">
-        <h1>攝影</h1>
-    </div>
-    <!-- 空行 -->
-    <div class="row  block">
+    <body>
+        <div id="app">
+            <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+                <div class="container-fluid">
+                    <img class="logo" src="img/logo.png" alt="logo">
+                    <a class="navbar-brand" href="rtfantasy.html">RtFantasy</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <!-- 普通連結 -->
+                            <li class="nav-item" v-for="(link, index) in navLinks" :key="index">
+                                <a class="nav-link" :href="link.href">{{ link.text }}</a>
+                            </li>
 
-
-    </div>
-
-
-    <div class="container">
-        <!-- 第一個區塊 -->
-        <div class="row block">
-            <div class="col-md-6 col-sm-12 text-center">
-                <img src="img/photo/1.jpg" alt="散景" class="image img-fluid" />
-            </div>
-            <div class="col-md-6 col-sm-12 mt-3 ">
-                <div class="text">
-                    <h3>散景</h3>
-                    <p>此作品為攝影課的散景練習，我在此作品中利用了兩面鏡子，並將相機以定時拍照的方式拍攝，目的是想利用散景的方式呈現鏡子中只有相機一個物品。
-                    </p>
+                            <!-- 下拉式選單 -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    作品
+                                </a>
+                                <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                                    <li class="dropdown-item" v-for="(option, index) in dropdownOptions"
+                                        :key="'dropdown-' + index">
+                                        <a :href="option.href">{{ option.text }}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            </nav>
         </div>
 
-        <!-- 第二個區塊 -->
-        <div class="row  block">
-            <div class="col-md-6 col-sm-12 text-center">
-                <img src="img/photo/2.jpg" alt="LRC色溫" class="image img-fluid" />
-            </div>
-            <div class="col-md-6 col-sm-12 mt-3">
-                <div class="text">
-                    <h3>Lightroom修圖</h3>
-                    <p>此作品為Adobe Lightroom軟體修圖練習，我在此作品中將原本的圖像調色，使其色溫改變，目的是想使圖片呈現像是動畫裡面的模樣。
-                    </p>
-                </div>
-            </div>
+        <!-- 作品內容 -->
+        <div class="content bg-light">
+            <h1>攝影</h1>
         </div>
-
-        <!-- 第三個區塊 -->
-        <div class="row  block">
-            <div class="col-md-6 col-sm-12 text-center">
-                <img src="img/photo/3.jpg" alt="LRC色溫" class="image img-fluid" />
-            </div>
-            <div class="col-md-6 col-sm-12 mt-3">
-                <div class="text">
-                    <h3>Lightroom修圖</h3>
-                    <p>此作品為Adobe Lightroom軟體修圖練習，我在此作品中將圖片的色溫以及曝光度做調整，目的是想讓圖像呈現出繁華的樣子。
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 第四個區塊 -->
-        <div class="row  block">
-            <div class="col-md-6 col-sm-12 text-center">
-                <img src="img/photo/4.jpg" alt="LRC人物凸顯" class="image img-fluid" />
-            </div>
-            <div class="col-md-6 col-sm-12 mt-3">
-                <div class="text">
-                    <h3>Lightroom修圖</h3>
-                    <p>此作品為Adobe Lightroom軟體修圖練習，我在此作品中將圖片的色調、色溫以及曝光做區域性的調整，目的是想讓圖片中的人物像是浮現出來一樣，製造出一點的立體感。
-                    
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 第五個區塊 -->
-        <div class="row  block">
-            <div class="col-md-6 col-sm-12 text-center">
-                <img src="img/photo/5.jpg" alt="中央公園" class="image img-fluid" />
-            </div>
-            <div class="col-md-6 col-sm-12 mt-3">
-                <div class="text">
-                    <h3>臺中中央公園</h3>
-                    <p>此作品為縮時攝影中所拍攝的其中一張照片，之所以在此取景是因為當時的風景以及雲彩相當美麗，因此才將其中一個地點選在「中央公園」。</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 第六個區塊 -->
-        <div class="row  block">
-            <div class="col-md-6 col-sm-12 text-center">
-                <img src="img/photo/6.jpg" alt="黃金時光" class="image img-fluid" />
-            </div>
-            <div class="col-md-6 col-sm-12 mt-3">
-                <div class="text">
-                    <h3>黃金時光</h3>
-                    <p>此作品為學校操場所拍攝的黃金時光，當時在回家的路上遇到美麗的景象，因此使用手機上的Lightroom調整設定並拍攝。</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 第七個區塊 -->
-        <div class="row  block">
-            <div class="col-md-6 col-sm-12 text-center">
-                <img src="img/photo/7.jpg" alt="黃金時光" class="image img-fluid" />
-            </div>
-            <div class="col-md-6 col-sm-12 mt-3">
-                <div class="text">
-                    <h3>中央公園黃金時光</h3>
-                    <p>此作品為縮時攝影中所拍攝的其中一張照片，當時準備離開中央公園時偶遇漂亮的黃金時光，因而爬上高點拍攝的黃金時光。</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 第八個區塊 -->
-        <div class="row  block">
-            <div class="col-md-6 col-sm-12 text-center">
-                <img src="img/photo/8.jpg" alt="黃金時光" class="image img-fluid" />
-            </div>
-            <div class="col-md-6 col-sm-12 mt-3">
-                <div class="text">
-                    <h3>帝國製糖廠黃金時光</h3>
-                    <p>此作品為縮時攝影中所拍攝的其中一張照片，當時在帝國製糖廠取景，在拍攝完取景地點時，看到這樣的黃金時光，因此隨手又架起相機將此場景也作為其中一個取景位置。</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 第九個區塊 -->
-        <div class="row  block">
-            <div class="col-md-6 col-sm-12 text-center">
-                <img src="img/photo/9.jpg" alt="帝國製糖廠夜景" class="image img-fluid" />
-            </div>
-            <div class="col-md-6 col-sm-12 mt-3">
-                <div class="text">
-                    <h3>帝國製糖廠夜景</h3>
-                    <p>此作品為縮時攝影中所拍攝的其中一張照片，當時在取完黃金時光時，天色漸暗準備離開時，又發現此時的夜景也是不錯的取景點，因此又將相機架設後，將此地也設為取景地點。</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 第十個區塊 -->
-        <div class="row  block">
-          <div class="col-md-6 col-sm-12 text-center">
-              <img src="img/photo/10.jpg" alt="秋紅谷生態園區" class="image img-fluid" />
-          </div>
-          <div class="col-md-6 col-sm-12 mt-3">
-              <div class="text">
-                  <h3>秋紅谷生態園區</h3>
-                  <p>此作品為縮時攝影中所拍攝的其中一張照片，當時先用地圖稍微做了功課，覺得此地的風景很適合拍攝縮時攝影，而剛好當時那個鏡位剛好有兩棟大樓可以將陽光遮擋大部分，使其不這麼的曝光，因此選了這個位置拍攝。</p>
-              </div>
-          </div>
-        </div>
-
-        <!-- 第十一個區塊 -->
-        <div class="row  block">
-          <div class="col-md-6 col-sm-12 text-center">
-              <img src="img/photo/11.jpg" alt="追焦(公車)" class="image img-fluid" />
-          </div>
-          <div class="col-md-6 col-sm-12 mt-3">
-              <div class="text">
-                  <h3>追焦(公車)</h3>
-                  <p>此作品為攝影課的追焦練習，但是當時我想嘗試以固定鏡位，且剛好有車快速通過的畫面，而這張照片就在公車經過時產生了，公車因為沒有跟焦的原因模糊了，但是其後面的場景是清楚的，因為效果不錯而留下的照片。</p>
-              </div>
-          </div>
-        </div>
-
-        <!-- 第十二個區塊 -->
-        <div class="row  block">
-          <div class="col-md-6 col-sm-12 text-center">
-              <img src="img/photo/12.jpg" alt="追焦(火車)" class="image img-fluid" />
-          </div>
-          <div class="col-md-6 col-sm-12 mt-3">
-              <div class="text">
-                  <h3>追焦(火車)</h3>
-                  <p>此作品為攝影課的追焦練習，當時剛好在火車站而火車也剛從停駛狀態下啟動，因此我將相機拿起來拍攝跟焦的畫面，因為火車剛提速因此跟焦的照片還蠻成功的。</p>
-              </div>
-          </div>
-        </div>
-
-        <!-- 第十三個區塊 -->
-        <div class="row  block">
-          <div class="col-md-6 col-sm-12 text-center">
-              <img src="img/photo/13.jpg" alt="商業大樓" class="image img-fluid" />
-          </div>
-          <div class="col-md-6 col-sm-12 mt-3">
-              <div class="text">
-                  <h3>商業大樓</h3>
-                  <p>此作品為縮時攝影中所拍攝的其中一張照片，因為當時在「國家歌劇院」附近尋找可拍攝地點，誤打誤撞看到這幾棟商業大樓，因為當時的天空以及雲狀態很好，因而架設相機拍攝的照片。</p>
-              </div>
-          </div>
-        </div>
-
-        <!-- 第十四個區塊 -->
-        <div class="row  block">
-          <div class="col-md-6 col-sm-12 text-center">
-              <img src="img/photo/14.jpg" alt="臺中國家歌劇院" class="image img-fluid" />
-          </div>
-          <div class="col-md-6 col-sm-12 mt-3">
-              <div class="text">
-                  <h3>臺中國家歌劇院</h3>
-                  <p>此作品為縮時攝影中所拍攝的其中一張照片，當時在準備拍攝縮時攝影時，此地點就是最先選擇的取景位置，因為當時剛好規劃了順便參觀，並且當天的天氣以及光線也非常好，所以選此為縮時攝影的第一個片段。</p>
-              </div>
-          </div>
-        </div>
-
-        <!-- 第十五個區塊 -->
-        <div class="row  block">
-          <div class="col-md-6 col-sm-12 text-center">
-              <img src="img/photo/15.jpg" alt="日曜天地(車軌)" class="image img-fluid" />
-          </div>
-          <div class="col-md-6 col-sm-12 mt-3">
-              <div class="text">
-                  <h3>日曜天地(車軌)</h3>
-                  <p>此作品為縮時攝影中所拍攝的其中一張照片，當時在規劃取景時，因為是縮時攝影，因此直接聯想到「車軌」，也因為想要拍攝「車軌」還因此去學習了該如何調整相機的參數，以達到我想要的效果。</p>
-              </div>
-          </div>
-        </div>
-
-
         <!-- 空行 -->
         <div class="row  block">
-
-
         </div>
-    </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            gsap.registerPlugin(ScrollTrigger);
+        <div id="photo">
+            <div class="container">
+              <div class="row block">
+                <div class="col-md-6 col-sm-12 text-center" v-for="photo in photos" :key="photo.id">
+                  <img :src="photo.imgsrc" class="image img-fluid" />
+                  <div class="text mt-3">
+                    <h3>{{photo.title}}</h3>
+                    <p>{{photo.text}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
 
-            // 選取所有圖片和文字，並分別套用動畫效果
-            const blocks = document.querySelectorAll('.block');
 
-            blocks.forEach(block => {
-                // 對每個區塊中的圖片進行動畫設定
-                gsap.to(block.querySelector('.image'), {
-                    opacity: 1,
-                    y: 0,
-                    duration: 1,
-                    scrollTrigger: {
-                        trigger: block, // 以整個區塊為觸發器
-                        start: 'top 80%', // 動畫開始觸發點
-                        end: 'top 50%',  // 動畫結束點
-                        scrub: 1 ,        // 讓動畫隨滾動進行
-                        markers:false
-                    }
+
+
+
+                <!-- 第四個區塊 -->
+                <div class="row  block">
+                    <div class="col-md-6 col-sm-12 text-center">
+                        <img src="img/photo/4.jpg" alt="LRC人物凸顯" class="image img-fluid" />
+                    </div>
+                    <div class="col-md-6 col-sm-12 mt-3">
+                        <div class="text">
+                            <h3>Lightroom修圖</h3>
+                            <p>此作品為Adobe Lightroom軟體修圖練習，我在此作品中將圖片的色調、色溫以及曝光做區域性的調整，目的是想讓圖片中的人物像是浮現出來一樣，製造出一點的立體感。
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第五個區塊 -->
+                <div class="row  block">
+                    <div class="col-md-6 col-sm-12 text-center">
+                        <img src="img/photo/5.jpg" alt="中央公園" class="image img-fluid" />
+                    </div>
+                    <div class="col-md-6 col-sm-12 mt-3">
+                        <div class="text">
+                            <h3>臺中中央公園</h3>
+                            <p>此作品為縮時攝影中所拍攝的其中一張照片，之所以在此取景是因為當時的風景以及雲彩相當美麗，因此才將其中一個地點選在「中央公園」。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第六個區塊 -->
+                <div class="row  block">
+                    <div class="col-md-6 col-sm-12 text-center">
+                        <img src="img/photo/6.jpg" alt="黃金時光" class="image img-fluid" />
+                    </div>
+                    <div class="col-md-6 col-sm-12 mt-3">
+                        <div class="text">
+                            <h3>黃金時光</h3>
+                            <p>此作品為學校操場所拍攝的黃金時光，當時在回家的路上遇到美麗的景象，因此使用手機上的Lightroom調整設定並拍攝。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第七個區塊 -->
+                <div class="row  block">
+                    <div class="col-md-6 col-sm-12 text-center">
+                        <img src="img/photo/7.jpg" alt="黃金時光" class="image img-fluid" />
+                    </div>
+                    <div class="col-md-6 col-sm-12 mt-3">
+                        <div class="text">
+                            <h3>中央公園黃金時光</h3>
+                            <p>此作品為縮時攝影中所拍攝的其中一張照片，當時準備離開中央公園時偶遇漂亮的黃金時光，因而爬上高點拍攝的黃金時光。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第八個區塊 -->
+                <div class="row  block">
+                    <div class="col-md-6 col-sm-12 text-center">
+                        <img src="img/photo/8.jpg" alt="黃金時光" class="image img-fluid" />
+                    </div>
+                    <div class="col-md-6 col-sm-12 mt-3">
+                        <div class="text">
+                            <h3>帝國製糖廠黃金時光</h3>
+                            <p>此作品為縮時攝影中所拍攝的其中一張照片，當時在帝國製糖廠取景，在拍攝完取景地點時，看到這樣的黃金時光，因此隨手又架起相機將此場景也作為其中一個取景位置。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第九個區塊 -->
+                <div class="row  block">
+                    <div class="col-md-6 col-sm-12 text-center">
+                        <img src="img/photo/9.jpg" alt="帝國製糖廠夜景" class="image img-fluid" />
+                    </div>
+                    <div class="col-md-6 col-sm-12 mt-3">
+                        <div class="text">
+                            <h3>帝國製糖廠夜景</h3>
+                            <p>此作品為縮時攝影中所拍攝的其中一張照片，當時在取完黃金時光時，天色漸暗準備離開時，又發現此時的夜景也是不錯的取景點，因此又將相機架設後，將此地也設為取景地點。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第十個區塊 -->
+                <div class="row  block">
+                    <div class="col-md-6 col-sm-12 text-center">
+                        <img src="img/photo/10.jpg" alt="秋紅谷生態園區" class="image img-fluid" />
+                    </div>
+                    <div class="col-md-6 col-sm-12 mt-3">
+                        <div class="text">
+                            <h3>秋紅谷生態園區</h3>
+                            <p>此作品為縮時攝影中所拍攝的其中一張照片，當時先用地圖稍微做了功課，覺得此地的風景很適合拍攝縮時攝影，而剛好當時那個鏡位剛好有兩棟大樓可以將陽光遮擋大部分，使其不這麼的曝光，因此選了這個位置拍攝。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第十一個區塊 -->
+                <div class="row  block">
+                    <div class="col-md-6 col-sm-12 text-center">
+                        <img src="img/photo/11.jpg" alt="追焦(公車)" class="image img-fluid" />
+                    </div>
+                    <div class="col-md-6 col-sm-12 mt-3">
+                        <div class="text">
+                            <h3>追焦(公車)</h3>
+                            <p>此作品為攝影課的追焦練習，但是當時我想嘗試以固定鏡位，且剛好有車快速通過的畫面，而這張照片就在公車經過時產生了，公車因為沒有跟焦的原因模糊了，但是其後面的場景是清楚的，因為效果不錯而留下的照片。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第十二個區塊 -->
+                <div class="row  block">
+                    <div class="col-md-6 col-sm-12 text-center">
+                        <img src="img/photo/12.jpg" alt="追焦(火車)" class="image img-fluid" />
+                    </div>
+                    <div class="col-md-6 col-sm-12 mt-3">
+                        <div class="text">
+                            <h3>追焦(火車)</h3>
+                            <p>此作品為攝影課的追焦練習，當時剛好在火車站而火車也剛從停駛狀態下啟動，因此我將相機拿起來拍攝跟焦的畫面，因為火車剛提速因此跟焦的照片還蠻成功的。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第十三個區塊 -->
+                <div class="row  block">
+                    <div class="col-md-6 col-sm-12 text-center">
+                        <img src="img/photo/13.jpg" alt="商業大樓" class="image img-fluid" />
+                    </div>
+                    <div class="col-md-6 col-sm-12 mt-3">
+                        <div class="text">
+                            <h3>商業大樓</h3>
+                            <p>此作品為縮時攝影中所拍攝的其中一張照片，因為當時在「國家歌劇院」附近尋找可拍攝地點，誤打誤撞看到這幾棟商業大樓，因為當時的天空以及雲狀態很好，因而架設相機拍攝的照片。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第十四個區塊 -->
+                <div class="row  block">
+                    <div class="col-md-6 col-sm-12 text-center">
+                        <img src="img/photo/14.jpg" alt="臺中國家歌劇院" class="image img-fluid" />
+                    </div>
+                    <div class="col-md-6 col-sm-12 mt-3">
+                        <div class="text">
+                            <h3>臺中國家歌劇院</h3>
+                            <p>此作品為縮時攝影中所拍攝的其中一張照片，當時在準備拍攝縮時攝影時，此地點就是最先選擇的取景位置，因為當時剛好規劃了順便參觀，並且當天的天氣以及光線也非常好，所以選此為縮時攝影的第一個片段。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第十五個區塊 -->
+                <div class="row  block">
+                    <div class="col-md-6 col-sm-12 text-center">
+                        <img src="img/photo/15.jpg" alt="日曜天地(車軌)" class="image img-fluid" />
+                    </div>
+                    <div class="col-md-6 col-sm-12 mt-3">
+                        <div class="text">
+                            <h3>日曜天地(車軌)</h3>
+                            <p>此作品為縮時攝影中所拍攝的其中一張照片，當時在規劃取景時，因為是縮時攝影，因此直接聯想到「車軌」，也因為想要拍攝「車軌」還因此去學習了該如何調整相機的參數，以達到我想要的效果。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 空行 -->
+                <div class="row  block">
+
+
+                </div>
+            </div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    gsap.registerPlugin(ScrollTrigger);
+
+                    // 選取所有圖片和文字，並分別套用動畫效果
+                    const blocks = document.querySelectorAll('.block');
+
+                    blocks.forEach(block => {
+                        // 對每個區塊中的圖片進行動畫設定
+                        gsap.to(block.querySelector('.image'), {
+                            opacity: 1,
+                            y: 0,
+                            duration: 1,
+                            scrollTrigger: {
+                                trigger: block, // 以整個區塊為觸發器
+                                start: 'top 80%', // 動畫開始觸發點
+                                end: 'top 50%',  // 動畫結束點
+                                scrub: 1,        // 讓動畫隨滾動進行
+                                markers: false
+                            }
+                        });
+
+                        // 對每個區塊中的文字進行動畫設定
+                        gsap.to(block.querySelector('.text'), {
+                            opacity: 1,
+                            y: 0,
+                            duration: 1,
+                            scrollTrigger: {
+                                trigger: block, // 以整個區塊為觸發器
+                                start: 'top 70%', // 動畫開始觸發點 (文字稍晚)
+                                end: 'top 50%',  // 動畫結束點
+                                scrub: 1,        // 讓動畫隨滾動進行
+                                markers: false
+                            }
+                        });
+                    });
                 });
-
-                // 對每個區塊中的文字進行動畫設定
-                gsap.to(block.querySelector('.text'), {
-                    opacity: 1,
-                    y: 0,
-                    duration: 1,
-                    scrollTrigger: {
-                        trigger: block, // 以整個區塊為觸發器
-                        start: 'top 70%', // 動畫開始觸發點 (文字稍晚)
-                        end: 'top 50%',  // 動畫結束點
-                        scrub: 1 ,        // 讓動畫隨滾動進行
-                        markers:false
-                    }
-                });
-            });
-        });
-    </script>
+            </script>
 
 
-<!-- 聲明區 -->
-<footer class="bg-secondary text-white text-center py-3 mt-5">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
-          <p class="mb-0">&copy; 2024 RtFantasy. All rights reserved.</p>
-          <a href="#" class="text-white">隱私政策</a> | 
-          <a href="#" class="text-white">服務條款</a> &nbsp;
-          <a href="#" class="text-white">聯絡資訊：921003jun@gmail.com</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+            <!-- 聲明區 -->
+            <footer class="bg-secondary text-white text-center py-3 mt-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                            <p class="mb-0">&copy; 2024 RtFantasy. All rights reserved.</p>
+                            <a href="#" class="text-white">隱私政策</a> |
+                            <a href="#" class="text-white">服務條款</a> &nbsp;
+                            <a href="#" class="text-white">聯絡資訊：921003jun@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
 
-
-<script src="main.js"></script>
-</body>
+            
+            
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </body>
 
 </html>
