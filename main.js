@@ -102,37 +102,34 @@ const photos = Vue.createApp({
     };
   },
   mounted() {
-    // 確保在整個頁面載入完成後初始化 GSAP
-    window.addEventListener('load', () => {
-      gsap.registerPlugin(ScrollTrigger);
-
-      // Ajax 獲取資料
-      $.ajax({
-        url: "/photography",
-        method: "get",
-        dataType: "json",
-        success: (results) => {
-          this.photos = results;
-          this.$nextTick(() => {
-            // 確保 DOM 渲染完成後初始化 GSAP 動畫
-            this.initGSAPAnimations();
-          });
-        },
-        error: (error) => {
-          console.error("Error fetching data:", error);
-        }
-      });
+    // Ajax 獲取資料
+    $.ajax({
+      url: "/photography",
+      method: "get",
+      dataType: "json",
+      success: (results) => {
+        this.photos = results;
+        this.$nextTick(() => {
+          // 確保 DOM 渲染完成後初始化 GSAP 動畫
+          this.initGSAPAnimations();
+        });
+      },
+      error: (error) => {
+        console.error("Error fetching data:", error);
+      }
     });
   },
   methods: {
     initGSAPAnimations() {
+      gsap.registerPlugin(ScrollTrigger);
+  
       // 選取所有區塊
       const blocks = document.querySelectorAll('.block');
-
+  
       blocks.forEach((block) => {
         const image = block.querySelector('.image');
         const text = block.querySelector('.text');
-
+  
         // 創建時間線
         const tl = gsap.timeline({
           scrollTrigger: {
@@ -140,17 +137,17 @@ const photos = Vue.createApp({
             start: 'top 80%', // 動畫開始觸發點
             end: 'top 20%',  // 動畫結束點
             scrub: 1,        // 讓動畫隨滾動進行
-            markers: false   // 顯示 ScrollTrigger 標記（可移除）
+            markers: false    // 顯示 ScrollTrigger 標記（可移除）
           },
         });
-
+  
         // 添加圖片動畫到時間線
         tl.fromTo(
           image,
           { opacity: 0, y: 100 }, // 起始狀態
           { opacity: 1, y: 0, duration: 1 } // 結束狀態
         );
-
+  
         // 添加文字動畫到時間線（接續圖片動畫）
         tl.fromTo(
           text,
@@ -161,10 +158,10 @@ const photos = Vue.createApp({
       });
     },
   },
+  
 });
 
 photos.mount("#photo");
-
 
 
 //works
