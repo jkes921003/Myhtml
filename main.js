@@ -137,7 +137,7 @@ const photos = Vue.createApp({
             start: 'top 80%', // 動畫開始觸發點
             end: 'top 20%',  // 動畫結束點
             scrub: 1,        // 讓動畫隨滾動進行
-            markers: true    // 顯示 ScrollTrigger 標記（可移除）
+            markers: false    // 顯示 ScrollTrigger 標記（可移除）
           },
         });
   
