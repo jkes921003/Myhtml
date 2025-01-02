@@ -16,7 +16,7 @@ const app = Vue.createApp({
 
 app.mount("#app");
 
-const  Carousel= Vue.createApp({
+const Carousel = Vue.createApp({
   data() {
     return {
       // 定義幻燈片的資料
@@ -31,7 +31,7 @@ const  Carousel= Vue.createApp({
       dataType: "json",
       success: (results) => {
         // 更新 幻燈片 資料
-        this.carouselItems= results;
+        this.carouselItems = results;
       },
       error: (error) => {
         console.error("Error fetching data:", error);
@@ -79,13 +79,13 @@ const about = Vue.createApp({
       aboutMe: {
         name: "王元俊",
         tagline: "​一個學習中的創作者",
-        motto:"座右銘：Life is so hard but Fantastic. ",
-        photo: "img/me.jpg", 
+        motto: "座右銘：Life is so hard but Fantastic. ",
+        photo: "img/me.jpg",
         bio: "就讀：台中科技大學多媒體設計系 ",
-        bio2:"興趣：玩遊戲、烹飪、畫畫、唱歌、拍天空、看動漫、看小說......",
-        bio3:"持有證照：數位電子乙級、工業電子丙級、電腦軟體應用丙級",
-        bio4:"個性開朗善於溝通與表達，對於邏輯以及現況的掌握有清晰的思維。",
-        bio5:"手作能力出色，在工具使用方式的學習上非常快速，可將剛學會的手作技巧運用在自己正在製作的作品。",
+        bio2: "興趣：玩遊戲、烹飪、畫畫、唱歌、拍天空、看動漫、看小說......",
+        bio3: "持有證照：數位電子乙級、工業電子丙級、電腦軟體應用丙級",
+        bio4: "個性開朗善於溝通與表達，對於邏輯以及現況的掌握有清晰的思維。",
+        bio5: "手作能力出色，在工具使用方式的學習上非常快速，可將剛學會的手作技巧運用在自己正在製作的作品。",
       }
     };
   }
@@ -98,25 +98,65 @@ about.mount("#about");
 const photos = Vue.createApp({
   data() {
     return {
-      // 定義卡片的資料
-      photos: [],
+      photos: [] // 存放照片資料
     };
   },
   mounted() {
-    // 使用 jQuery 的 Ajax 請求
+    // Ajax 獲取資料
     $.ajax({
       url: "/photography",
       method: "get",
       dataType: "json",
       success: (results) => {
-        // 更新 cards 資料
         this.photos = results;
+        this.$nextTick(() => {
+          // 確保 DOM 渲染完成後初始化 GSAP 動畫
+          this.initGSAPAnimations();
+        });
       },
       error: (error) => {
         console.error("Error fetching data:", error);
-      },
+      }
     });
   },
+  methods: {
+    initGSAPAnimations() {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 選取所有區塊，並套用 GSAP 動畫
+      const blocks = document.querySelectorAll('.block');
+
+      blocks.forEach(block => {
+        // 對每個區塊中的圖片進行動畫設定
+        gsap.to(block.querySelector('.image'), {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: block, // 以整個區塊為觸發器
+            start: 'top 80%', // 動畫開始觸發點
+            end: 'top 50%',  // 動畫結束點
+            scrub: 1,        // 讓動畫隨滾動進行
+            markers: false
+          }
+        });
+
+        // 對每個區塊中的文字進行動畫設定
+        gsap.to(block.querySelector('.text'), {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: block, // 以整個區塊為觸發器
+            start: 'top 70%', // 動畫開始觸發點 (文字稍晚)
+            end: 'top 50%',  // 動畫結束點
+            scrub: 1,        // 讓動畫隨滾動進行
+            markers: false
+          }
+        });
+      });
+    }
+  }
 });
 
 photos.mount("#photo");
@@ -131,20 +171,61 @@ const works = Vue.createApp({
     };
   },
   mounted() {
-    // 使用 jQuery 的 Ajax 請求
+    // Ajax 獲取資料
     $.ajax({
       url: "/work",
       method: "get",
       dataType: "json",
       success: (results) => {
-        // 更新 works 資料
         this.works = results;
+        this.$nextTick(() => {
+          // 確保 DOM 渲染完成後初始化 GSAP 動畫
+          this.initGSAPAnimations();
+        });
       },
       error: (error) => {
         console.error("Error fetching data:", error);
-      },
+      }
     });
   },
+  methods: {
+    initGSAPAnimations() {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 選取所有區塊，並套用 GSAP 動畫
+      const blocks = document.querySelectorAll('.block');
+
+      blocks.forEach(block => {
+        // 對每個區塊中的圖片進行動畫設定
+        gsap.to(block.querySelector('.image'), {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: block, // 以整個區塊為觸發器
+            start: 'top 80%', // 動畫開始觸發點
+            end: 'top 50%',  // 動畫結束點
+            scrub: 1,        // 讓動畫隨滾動進行
+            markers: false
+          }
+        });
+
+        // 對每個區塊中的文字進行動畫設定
+        gsap.to(block.querySelector('.text'), {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: block, // 以整個區塊為觸發器
+            start: 'top 70%', // 動畫開始觸發點 (文字稍晚)
+            end: 'top 50%',  // 動畫結束點
+            scrub: 1,        // 讓動畫隨滾動進行
+            markers: false
+          }
+        });
+      });
+    }
+  }
 });
 
 works.mount("#work");
@@ -158,20 +239,61 @@ const designs = Vue.createApp({
     };
   },
   mounted() {
-    // 使用 jQuery 的 Ajax 請求
+    // Ajax 獲取資料
     $.ajax({
       url: "/design",
       method: "get",
       dataType: "json",
       success: (results) => {
-        // 更新 cards 資料
         this.designs = results;
+        this.$nextTick(() => {
+          // 確保 DOM 渲染完成後初始化 GSAP 動畫
+          this.initGSAPAnimations();
+        });
       },
       error: (error) => {
         console.error("Error fetching data:", error);
-      },
+      }
     });
   },
+  methods: {
+    initGSAPAnimations() {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 選取所有區塊，並套用 GSAP 動畫
+      const blocks = document.querySelectorAll('.block');
+
+      blocks.forEach(block => {
+        // 對每個區塊中的圖片進行動畫設定
+        gsap.to(block.querySelector('.image'), {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: block, // 以整個區塊為觸發器
+            start: 'top 80%', // 動畫開始觸發點
+            end: 'top 50%',  // 動畫結束點
+            scrub: 1,        // 讓動畫隨滾動進行
+            markers: false
+          }
+        });
+
+        // 對每個區塊中的文字進行動畫設定
+        gsap.to(block.querySelector('.text'), {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: block, // 以整個區塊為觸發器
+            start: 'top 70%', // 動畫開始觸發點 (文字稍晚)
+            end: 'top 50%',  // 動畫結束點
+            scrub: 1,        // 讓動畫隨滾動進行
+            markers: false
+          }
+        });
+      });
+    }
+  }
 });
 
 designs.mount("#design");
