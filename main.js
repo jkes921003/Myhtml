@@ -122,41 +122,43 @@ const photos = Vue.createApp({
   methods: {
     initGSAPAnimations() {
       gsap.registerPlugin(ScrollTrigger);
-
-      // 選取所有區塊，並套用 GSAP 動畫
+  
+      // 選取所有區塊
       const blocks = document.querySelectorAll('.block');
-
-      blocks.forEach(block => {
-        // 對每個區塊中的圖片進行動畫設定
-        gsap.to(block.querySelector('.image'), {
-          opacity: 1,
-          y: 0,
-          duration: 1,
+  
+      blocks.forEach((block) => {
+        const image = block.querySelector('.image');
+        const text = block.querySelector('.text');
+  
+        // 創建時間線
+        const tl = gsap.timeline({
           scrollTrigger: {
             trigger: block, // 以整個區塊為觸發器
             start: 'top 80%', // 動畫開始觸發點
             end: 'top 20%',  // 動畫結束點
             scrub: 1,        // 讓動畫隨滾動進行
-            markers: true
-          }
+            markers: true    // 顯示 ScrollTrigger 標記（可移除）
+          },
         });
-
-        // 對每個區塊中的文字進行動畫設定
-        gsap.to(block.querySelector('.text'), {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          scrollTrigger: {
-            trigger: block, // 以整個區塊為觸發器
-            start: 'top 80%', // 動畫開始觸發點 (文字稍晚)
-            end: 'top 20%',  // 動畫結束點
-            scrub: 1,        // 讓動畫隨滾動進行
-            markers: true
-          }
-        });
+  
+        // 添加圖片動畫到時間線
+        tl.fromTo(
+          image,
+          { opacity: 0, y: 100 }, // 起始狀態
+          { opacity: 1, y: 0, duration: 1 } // 結束狀態
+        );
+  
+        // 添加文字動畫到時間線（接續圖片動畫）
+        tl.fromTo(
+          text,
+          { opacity: 0, y: 100 }, // 起始狀態
+          { opacity: 1, y: 0, duration: 1 },
+          '<0.3' // 讓文字動畫與圖片動畫有 0.3 秒的重疊
+        );
       });
-    }
-  }
+    },
+  },
+  
 });
 
 photos.mount("#photo");
