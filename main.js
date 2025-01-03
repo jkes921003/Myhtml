@@ -98,7 +98,7 @@ about.mount("#about");
 const photos = Vue.createApp({
   data() {
     return {
-      photos: [] // 存放照片資料
+      photos: [], // 存放照片資料
     };
   },
   mounted() {
@@ -116,52 +116,52 @@ const photos = Vue.createApp({
       },
       error: (error) => {
         console.error("Error fetching data:", error);
-      }
+      },
     });
   },
   methods: {
     initGSAPAnimations() {
+      if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
+        console.error("GSAP or ScrollTrigger is not loaded.");
+        return;
+      }
+
       gsap.registerPlugin(ScrollTrigger);
-  
-      // 選取所有區塊
+
       const blocks = document.querySelectorAll('.block');
-  
+      if (blocks.length === 0) {
+        console.error("No blocks found for GSAP animations.");
+        return;
+      }
+
       blocks.forEach((block) => {
         const image = block.querySelector('.image');
         const text = block.querySelector('.text');
-  
-        // 創建時間線
+
+        if (!image || !text) {
+          console.error("Image or text element not found in block:", block);
+          return;
+        }
+
         const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: block, // 以整個區塊為觸發器
-            start: 'top 80%', // 動畫開始觸發點
-            end: 'top 20%',  // 動畫結束點
-            scrub: 1,        // 讓動畫隨滾動進行
-            markers: false    // 顯示 ScrollTrigger 標記（可移除）
+            trigger: block,
+            start: 'top 80%',
+            end: 'top 20%',
+            scrub: 1,
+            markers: false,
           },
         });
-  
-        // 添加圖片動畫到時間線
-        tl.fromTo(
-          image,
-          { opacity: 0, y: 100 }, // 起始狀態
-          { opacity: 1, y: 0, duration: 1 } // 結束狀態
-        );
-  
-        // 添加文字動畫到時間線（接續圖片動畫）
-        tl.fromTo(
-          text,
-          { opacity: 0, y: 100 }, // 起始狀態
-          { opacity: 1, y: 0, duration: 1 },
-          '<0.3' // 讓文字動畫與圖片動畫有 0.3 秒的重疊
-        );
+
+        tl.fromTo(image, { opacity: 0, y: 100 }, { opacity: 1, y: 0, duration: 1 });
+        tl.fromTo(text, { opacity: 0, y: 100 }, { opacity: 1, y: 0, duration: 1 }, '<0.3');
       });
     },
   },
-  
 });
 
 photos.mount("#photo");
+
 
 
 //works
