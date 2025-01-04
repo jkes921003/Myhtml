@@ -7,7 +7,7 @@ const path =require("path");
 
 
 //web root
-server.use(express.static(__dirname));
+server.use(express.static(__dirname+"/portfolio"));
 
 const fileUpload = require("express-fileupload");
 server.use(fileUpload({defCharset:'utf8', defParamCharset:'utf8'}));
