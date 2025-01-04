@@ -314,5 +314,5 @@ server.listen(7414, ()=>{
 })
 
 server.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname ,'/rtfantasy.html'));
+  res.sendFile(path.join(__dirname +'/portfolio/rtfantasy.html'));
 });

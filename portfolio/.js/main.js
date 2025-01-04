@@ -112,7 +112,7 @@ const photos = Vue.createApp({
         this.$nextTick(() => {
           setTimeout(() => {
             this.initGSAPAnimations(); // 延遲執行動畫初始化
-          }, 500); // 延遲 500 毫秒，可根據實際情況調整
+          }, 700); // 延遲 700 毫秒，可根據實際情況調整
         });
         
       },
@@ -184,8 +184,9 @@ const works = Vue.createApp({
       success: (results) => {
         this.works = results;
         this.$nextTick(() => {
-          // 確保 DOM 渲染完成後初始化 GSAP 動畫
-          this.initGSAPAnimations();
+          setTimeout(() => {
+            this.initGSAPAnimations(); // 延遲執行動畫初始化
+          }, 700); // 延遲 700 毫秒，可根據實際情況調整
         });
       },
       error: (error) => {
@@ -252,8 +253,9 @@ const designs = Vue.createApp({
       success: (results) => {
         this.designs = results;
         this.$nextTick(() => {
-          // 確保 DOM 渲染完成後初始化 GSAP 動畫
-          this.initGSAPAnimations();
+          setTimeout(() => {
+            this.initGSAPAnimations(); // 延遲執行動畫初始化
+          }, 700); // 延遲 700 毫秒，可根據實際情況調整
         });
       },
       error: (error) => {
