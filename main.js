@@ -110,9 +110,11 @@ const photos = Vue.createApp({
       success: (results) => {
         this.photos = results;
         this.$nextTick(() => {
-          // 確保 DOM 渲染完成後初始化 GSAP 動畫
-          this.initGSAPAnimations();
+          setTimeout(() => {
+            this.initGSAPAnimations(); // 延遲執行動畫初始化
+          }, 500); // 延遲 500 毫秒，可根據實際情況調整
         });
+        
       },
       error: (error) => {
         console.error("Error fetching data:", error);
