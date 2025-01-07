@@ -151,7 +151,7 @@ const photos = Vue.createApp({
             start: 'top 80%',
             end: 'top 35%',
             scrub: 1,
-            markers: true,
+            markers: false,
           },
         });
 
@@ -212,7 +212,7 @@ const works = Vue.createApp({
             start: 'top 80%', // 動畫開始觸發點
             end: 'top 50%',  // 動畫結束點
             scrub: 1,        // 讓動畫隨滾動進行
-            markers: true
+            markers: false
           }
         });
 
@@ -226,7 +226,7 @@ const works = Vue.createApp({
             start: 'top 70%', // 動畫開始觸發點 (文字稍晚)
             end: 'top 50%',  // 動畫結束點
             scrub: 1,        // 讓動畫隨滾動進行
-            markers: true
+            markers: false
           }
         });
       });
@@ -284,7 +284,7 @@ const designs = Vue.createApp({
               start: 'top 80%', // 動畫開始觸發點
               end: 'top 35%', // 動畫結束點
               scrub: 1, // 讓動畫隨滾動進行
-              markers: true,
+              markers: false
             }
           }
         );
@@ -302,7 +302,7 @@ const designs = Vue.createApp({
               start: 'top 70%', // 動畫開始觸發點 (文字稍晚)
               end: 'top 35%', // 動畫結束點
               scrub: 1, // 讓動畫隨滾動進行
-              markers: true,
+              markers: false
             }
           }
         );
