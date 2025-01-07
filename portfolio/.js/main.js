@@ -281,7 +281,7 @@ const designs = Vue.createApp({
             duration: 1,
             scrollTrigger: {
               trigger: block, // 以整個區塊為觸發器
-              start: 'top 80%', // 動畫開始觸發點
+              start: 'top 70%', // 動畫開始觸發點
               end: 'top 35%', // 動畫結束點
               scrub: 1, // 讓動畫隨滾動進行
               markers: false

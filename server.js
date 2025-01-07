@@ -309,8 +309,8 @@ server.get("/work", (req,res)=>{
 //      res.redirect("/#contact");
 // })
 
-server.listen(7414, ()=>{
-    console.log("Server is running at port 7414.");
+server.listen(2028, ()=>{
+    console.log("Server is running at port 2028.");
 })
 
 server.get('/', (req, res) => {
