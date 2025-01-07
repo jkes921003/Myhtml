@@ -149,14 +149,14 @@ const photos = Vue.createApp({
           scrollTrigger: {
             trigger: block,
             start: 'top 80%',
-            end: 'top 20%',
+            end: 'top 35%',
             scrub: 1,
-            markers: false,
+            markers: true,
           },
         });
 
-        tl.fromTo(image, { opacity: 0, y: 100 }, { opacity: 1, y: 0, duration: 1 });
-        tl.fromTo(text, { opacity: 0, y: 100 }, { opacity: 1, y: 0, duration: 1 }, '<0.3');
+        tl.fromTo(image, { opacity: 0, y: 300 }, { opacity: 1, y: 0, duration: 1 });
+        tl.fromTo(text, { opacity: 0, y: 300 }, { opacity: 1, y: 0, duration: 1 }, '<0.3');
       });
     },
   },
@@ -212,7 +212,7 @@ const works = Vue.createApp({
             start: 'top 80%', // 動畫開始觸發點
             end: 'top 50%',  // 動畫結束點
             scrub: 1,        // 讓動畫隨滾動進行
-            markers: false
+            markers: true
           }
         });
 
@@ -226,7 +226,7 @@ const works = Vue.createApp({
             start: 'top 70%', // 動畫開始觸發點 (文字稍晚)
             end: 'top 50%',  // 動畫結束點
             scrub: 1,        // 讓動畫隨滾動進行
-            markers: false
+            markers: true
           }
         });
       });
@@ -271,36 +271,45 @@ const designs = Vue.createApp({
       const blocks = document.querySelectorAll('.block');
 
       blocks.forEach(block => {
-        // 對每個區塊中的圖片進行動畫設定
-        gsap.to(block.querySelector('.image'), {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          scrollTrigger: {
-            trigger: block, // 以整個區塊為觸發器
-            start: 'top 80%', // 動畫開始觸發點
-            end: 'top 20%',  // 動畫結束點
-            scrub: 1,        // 讓動畫隨滾動進行
-            markers: false
+        // 對每個區塊中的圖片進行動畫設定（從左到右）
+        gsap.fromTo(
+          block.querySelector('.image'),
+          { opacity: 0, x: -300 }, // 起始狀態：隱藏，從左側外移
+          {
+            opacity: 1,
+            x: 0, // 結束狀態：完全顯示，回到原位置
+            duration: 1,
+            scrollTrigger: {
+              trigger: block, // 以整個區塊為觸發器
+              start: 'top 80%', // 動畫開始觸發點
+              end: 'top 35%', // 動畫結束點
+              scrub: 1, // 讓動畫隨滾動進行
+              markers: true,
+            }
           }
-        });
+        );
 
-        // 對每個區塊中的文字進行動畫設定
-        gsap.to(block.querySelector('.text'), {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          scrollTrigger: {
-            trigger: block, // 以整個區塊為觸發器
-            start: 'top 70%', // 動畫開始觸發點 (文字稍晚)
-            end: 'top 20%',  // 動畫結束點
-            scrub: 1,        // 讓動畫隨滾動進行
-            markers: false
+        // 對每個區塊中的文字進行動畫設定（從右到左）
+        gsap.fromTo(
+          block.querySelector('.text'),
+          { opacity: 0, x: 300 }, // 起始狀態：隱藏，從右側外移
+          {
+            opacity: 1,
+            x: 0, // 結束狀態：完全顯示，回到原位置
+            duration: 1,
+            scrollTrigger: {
+              trigger: block, // 以整個區塊為觸發器
+              start: 'top 70%', // 動畫開始觸發點 (文字稍晚)
+              end: 'top 35%', // 動畫結束點
+              scrub: 1, // 讓動畫隨滾動進行
+              markers: true,
+            }
           }
-        });
+        );
       });
     }
   }
 });
 
 designs.mount("#design");
+

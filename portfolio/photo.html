@@ -39,14 +39,19 @@
         }
 
         .block {
-            margin: 100px 0;
+            margin: 150px 0;
         }
 
-        .image,
+        .image {
+            opacity: 0;
+            /* 初始透明度 */
+            transform: translateY(300px);
+            /* 初始位置 */
+        }
         .text {
             opacity: 0;
             /* 初始透明度 */
-            transform: translateY(100px);
+            transform: translateY(300px);
             /* 初始位置 */
             font-size: 20px;
             /* 文字大小 */
@@ -99,11 +104,7 @@
         <div class="content bg-light">
             <h1>攝影</h1>
         </div>
-        <!-- 空行 -->
-        <div class="row  block">
-
-
-        </div>
+        
 
         <div id="photo">
             <div class="container">
@@ -123,7 +124,7 @@
         <!-- 空行 -->
         <div class="row  block">
         </div>
-        </div>
+        
 
         <script>
 
