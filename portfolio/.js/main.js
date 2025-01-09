@@ -273,7 +273,7 @@ const designs = Vue.createApp({
         // 對每個區塊中的圖片進行動畫設定（從左到右）
         gsap.fromTo(
           block.querySelector('.image'),
-          { opacity: 0, y: -300 }, // 起始狀態：隱藏，從左側外移
+          { opacity: 0, y: 300 }, // 起始狀態：隱藏，從左側外移
           {
             opacity: 1,
             y: 0, // 結束狀態：完全顯示，回到原位置
@@ -291,7 +291,7 @@ const designs = Vue.createApp({
         // 對每個區塊中的文字進行動畫設定（從右到左）
         gsap.fromTo(
           block.querySelector('.text'),
-          { opacity: 0, y: 300 }, // 起始狀態：隱藏，從右側外移
+          { opacity: 0, y: -300 }, // 起始狀態：隱藏，從右側外移
           {
             opacity: 1,
             y: 0, // 結束狀態：完全顯示，回到原位置
