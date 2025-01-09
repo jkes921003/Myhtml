@@ -117,11 +117,11 @@ const photos = Vue.createApp({
   },
 
   updated() {
-    // Vue 更新後等待 DOM 完全更新
-    this.$nextTick(() => {
+    setTimeout(() => {
       this.initGSAPAnimations();
-    });
+    }, 0); // 延遲到下個事件循環執行
   },
+  
   
   methods: {
     initGSAPAnimations() {
@@ -193,10 +193,9 @@ const works = Vue.createApp({
   },
 
   updated() {
-    // Vue 更新後等待 DOM 完全更新
-    this.$nextTick(() => {
+    setTimeout(() => {
       this.initGSAPAnimations();
-    });
+    }, 0); // 延遲到下個事件循環執行
   },
 
   methods: {
@@ -264,11 +263,11 @@ const designs = Vue.createApp({
     });
   },
   updated() {
-    // Vue 更新後等待 DOM 完全更新
-    this.$nextTick(() => {
+    setTimeout(() => {
       this.initGSAPAnimations();
-    });
-  },
+    }, 0); // 延遲到下個事件循環執行
+  }
+  ,
 
   methods: {
     initGSAPAnimations() {
