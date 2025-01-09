@@ -117,8 +117,10 @@ const photos = Vue.createApp({
   },
 
   updated() {
-    // Vue updated 觸發時執行 GSAP 初始化
-    this.initGSAPAnimations();
+    // Vue 更新後等待 DOM 完全更新
+    this.$nextTick(() => {
+      this.initGSAPAnimations();
+    });
   },
   
   methods: {
@@ -191,8 +193,10 @@ const works = Vue.createApp({
   },
 
   updated() {
-    // Vue updated 觸發時執行 GSAP 初始化
-    this.initGSAPAnimations();
+    // Vue 更新後等待 DOM 完全更新
+    this.$nextTick(() => {
+      this.initGSAPAnimations();
+    });
   },
 
   methods: {
@@ -260,8 +264,10 @@ const designs = Vue.createApp({
     });
   },
   updated() {
-    // Vue updated 觸發時執行 GSAP 初始化
-    this.initGSAPAnimations();
+    // Vue 更新後等待 DOM 完全更新
+    this.$nextTick(() => {
+      this.initGSAPAnimations();
+    });
   },
 
   methods: {
