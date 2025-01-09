@@ -43,14 +43,14 @@
         .image {
             opacity: 0;
             /* 初始透明度 */
-            transform: translateX(-300px);
+            transform: translateY(-300px);
             /* 初始位置 */
         }
 
         .text {
             opacity: 0;
             /* 初始透明度 */
-            transform: translateX(300px);
+            transform: translateY(300px);
             /* 初始位置 */
             font-size: 20px;
             /* 文字大小 */
@@ -103,12 +103,11 @@
     <div class="content bg-light">
         <h1>基礎設計</h1>
     </div>
-    
 
     <div id="design">
         <div class="container">
             <div class="row block" v-for="design in designs" :key="design.id">
-                <div class="col-md-6 col-sm-12 text-center">
+                <div class="col-md-6 col-sm-12 ">
                     <img :src="design.imgsrc" class="image img-fluid" />
                 </div>
                 <div class="col-md-6 col-sm-12 mt-3">
@@ -120,11 +119,12 @@
             </div>
         </div>
     </div>
+
     <!-- 空行 -->
     <div class="row  block">
     </div>
-    
-    
+
+
 
     <script>
 

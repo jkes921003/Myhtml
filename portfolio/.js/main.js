@@ -109,18 +109,18 @@ const photos = Vue.createApp({
       dataType: "json",
       success: (results) => {
         this.photos = results;
-        this.$nextTick(() => {
-          setTimeout(() => {
-            this.initGSAPAnimations(); // 延遲執行動畫初始化
-          }, 700); // 延遲 700 毫秒，可根據實際情況調整
-        });
-        
       },
       error: (error) => {
         console.error("Error fetching data:", error);
       },
     });
   },
+
+  updated() {
+    // Vue updated 觸發時執行 GSAP 初始化
+    this.initGSAPAnimations();
+  },
+  
   methods: {
     initGSAPAnimations() {
       if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
@@ -183,17 +183,18 @@ const works = Vue.createApp({
       dataType: "json",
       success: (results) => {
         this.works = results;
-        this.$nextTick(() => {
-          setTimeout(() => {
-            this.initGSAPAnimations(); // 延遲執行動畫初始化
-          }, 700); // 延遲 700 毫秒，可根據實際情況調整
-        });
       },
       error: (error) => {
         console.error("Error fetching data:", error);
       }
     });
   },
+
+  updated() {
+    // Vue updated 觸發時執行 GSAP 初始化
+    this.initGSAPAnimations();
+  },
+
   methods: {
     initGSAPAnimations() {
       gsap.registerPlugin(ScrollTrigger);
@@ -252,17 +253,17 @@ const designs = Vue.createApp({
       dataType: "json",
       success: (results) => {
         this.designs = results;
-        this.$nextTick(() => {
-          setTimeout(() => {
-            this.initGSAPAnimations(); // 延遲執行動畫初始化
-          }, 700); // 延遲 700 毫秒，可根據實際情況調整
-        });
       },
       error: (error) => {
         console.error("Error fetching data:", error);
       }
     });
   },
+  updated() {
+    // Vue updated 觸發時執行 GSAP 初始化
+    this.initGSAPAnimations();
+  },
+
   methods: {
     initGSAPAnimations() {
       gsap.registerPlugin(ScrollTrigger);
@@ -274,10 +275,10 @@ const designs = Vue.createApp({
         // 對每個區塊中的圖片進行動畫設定（從左到右）
         gsap.fromTo(
           block.querySelector('.image'),
-          { opacity: 0, x: -300 }, // 起始狀態：隱藏，從左側外移
+          { opacity: 0, y: -300 }, // 起始狀態：隱藏，從左側外移
           {
             opacity: 1,
-            x: 0, // 結束狀態：完全顯示，回到原位置
+            y: 0, // 結束狀態：完全顯示，回到原位置
             duration: 1,
             scrollTrigger: {
               trigger: block, // 以整個區塊為觸發器
@@ -292,10 +293,10 @@ const designs = Vue.createApp({
         // 對每個區塊中的文字進行動畫設定（從右到左）
         gsap.fromTo(
           block.querySelector('.text'),
-          { opacity: 0, x: 300 }, // 起始狀態：隱藏，從右側外移
+          { opacity: 0, y: 300 }, // 起始狀態：隱藏，從右側外移
           {
             opacity: 1,
-            x: 0, // 結束狀態：完全顯示，回到原位置
+            y: 0, // 結束狀態：完全顯示，回到原位置
             duration: 1,
             scrollTrigger: {
               trigger: block, // 以整個區塊為觸發器
