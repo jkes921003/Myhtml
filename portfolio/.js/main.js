@@ -117,9 +117,7 @@ const photos = Vue.createApp({
   },
 
   updated() {
-    setTimeout(() => {
       this.initGSAPAnimations();
-    }, 0); // 延遲到下個事件循環執行
   },
   
   
@@ -193,9 +191,7 @@ const works = Vue.createApp({
   },
 
   updated() {
-    setTimeout(() => {
       this.initGSAPAnimations();
-    }, 0); // 延遲到下個事件循環執行
   },
 
   methods: {
@@ -263,9 +259,7 @@ const designs = Vue.createApp({
     });
   },
   updated() {
-    setTimeout(() => {
       this.initGSAPAnimations();
-    }, 0); // 延遲到下個事件循環執行
   }
   ,
 
