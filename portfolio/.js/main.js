@@ -112,7 +112,7 @@ const photos = Vue.createApp({
         this.$nextTick(() => {
           setTimeout(() => {
             this.initGSAPAnimations(); // 延遲執行動畫初始化
-          }, 700); // 延遲 200 毫秒，可根據實際情況調整
+          }, 100); // 延遲 200 毫秒，可根據實際情況調整
         });
       },
       error: (error) => {
@@ -140,11 +140,7 @@ const photos = Vue.createApp({
         const image = block.querySelector('.image');
         const text = block.querySelector('.text');
 
-        if (!image || !text) {
-          console.error("Image or text element not found in block:", block);
-          return;
-        }
-
+        
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: block,
@@ -186,7 +182,7 @@ const works = Vue.createApp({
         this.$nextTick(() => {
           setTimeout(() => {
             this.initGSAPAnimations(); // 延遲執行動畫初始化
-          }, 700); // 延遲 200 毫秒，可根據實際情況調整
+          }, 100); // 延遲 200 毫秒，可根據實際情況調整
         });
       },
       error: (error) => {
@@ -256,7 +252,7 @@ const designs = Vue.createApp({
         this.$nextTick(() => {
           setTimeout(() => {
             this.initGSAPAnimations(); // 延遲執行動畫初始化
-          }, 700); // 延遲 200 毫秒，可根據實際情況調整
+          }, 100); // 延遲 200 毫秒，可根據實際情況調整
         });
       },
       error: (error) => {
