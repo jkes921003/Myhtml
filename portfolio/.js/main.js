@@ -112,7 +112,7 @@ const photos = Vue.createApp({
         this.$nextTick(() => {
           setTimeout(() => {
             this.initGSAPAnimations(); // 延遲執行動畫初始化
-          }, 100); // 延遲 200 毫秒，可根據實際情況調整
+          },200); // 延遲 200 毫秒，可根據實際情況調整
         });
       },
       error: (error) => {
@@ -182,7 +182,7 @@ const works = Vue.createApp({
         this.$nextTick(() => {
           setTimeout(() => {
             this.initGSAPAnimations(); // 延遲執行動畫初始化
-          }, 100); // 延遲 200 毫秒，可根據實際情況調整
+          },200); // 延遲 200 毫秒，可根據實際情況調整
         });
       },
       error: (error) => {
@@ -252,7 +252,7 @@ const designs = Vue.createApp({
         this.$nextTick(() => {
           setTimeout(() => {
             this.initGSAPAnimations(); // 延遲執行動畫初始化
-          }, 100); // 延遲 200 毫秒，可根據實際情況調整
+          },200); // 延遲 200 毫秒，可根據實際情況調整
         });
       },
       error: (error) => {
