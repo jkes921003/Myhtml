@@ -109,21 +109,17 @@ const photos = Vue.createApp({
       dataType: "json",
       success: (results) => {
         this.photos = results;
+        this.$nextTick(() => {
+          setTimeout(() => {
+            this.initGSAPAnimations(); // 延遲執行動畫初始化
+          }, 700); // 延遲 200 毫秒，可根據實際情況調整
+        });
       },
       error: (error) => {
         console.error("Error fetching data:", error);
       },
     });
   },
-
-  updated() {
-    this.$nextTick(() => {
-      setTimeout(() => {
-        this.initGSAPAnimations(); // 延遲執行動畫初始化
-      }, 100); // 延遲 100 毫秒，可根據實際情況調整
-    });
-  },
-  
   
   methods: {
     initGSAPAnimations() {
@@ -187,18 +183,15 @@ const works = Vue.createApp({
       dataType: "json",
       success: (results) => {
         this.works = results;
+        this.$nextTick(() => {
+          setTimeout(() => {
+            this.initGSAPAnimations(); // 延遲執行動畫初始化
+          }, 700); // 延遲 200 毫秒，可根據實際情況調整
+        });
       },
       error: (error) => {
         console.error("Error fetching data:", error);
       }
-    });
-  },
-
-  updated() {
-    this.$nextTick(() => {
-      setTimeout(() => {
-        this.initGSAPAnimations(); // 延遲執行動畫初始化
-      }, 100); // 延遲 100 毫秒，可根據實際情況調整
     });
   },
 
@@ -260,20 +253,18 @@ const designs = Vue.createApp({
       dataType: "json",
       success: (results) => {
         this.designs = results;
+        this.$nextTick(() => {
+          setTimeout(() => {
+            this.initGSAPAnimations(); // 延遲執行動畫初始化
+          }, 700); // 延遲 200 毫秒，可根據實際情況調整
+        });
       },
       error: (error) => {
         console.error("Error fetching data:", error);
       }
     });
   },
-  updated() {
-    this.$nextTick(() => {
-      setTimeout(() => {
-        this.initGSAPAnimations(); // 延遲執行動畫初始化
-      }, 100); // 延遲 100 毫秒，可根據實際情況調整
-    });
-  }
-  ,
+  
 
   methods: {
     initGSAPAnimations() {
