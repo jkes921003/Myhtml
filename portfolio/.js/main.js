@@ -252,7 +252,7 @@ const designs = Vue.createApp({
         this.$nextTick(() => {
           setTimeout(() => {
             this.initGSAPAnimations(); // 延遲執行動畫初始化
-          },300); // 延遲 200 毫秒，可根據實際情況調整
+          },700); // 延遲 700 毫秒，可根據實際情況調整
         });
       },
       error: (error) => {
