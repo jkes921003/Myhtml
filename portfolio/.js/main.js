@@ -147,7 +147,7 @@ const photos = Vue.createApp({
             start: 'top 80%',
             end: 'top 35%',
             scrub: 1,
-            markers: true,
+            markers: false,
           },
         });
 
