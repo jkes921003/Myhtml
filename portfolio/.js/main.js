@@ -99,10 +99,13 @@ const photos = Vue.createApp({
   data() {
     return {
       photos: [], // 存放照片資料
-      isPhotosLoaded: false, // 標誌資料是否已加載
     };
   },
-  
+  updated() {
+    this.$nextTick(() => {
+      this.initGSAPAnimations();
+    });
+  },
   
   mounted() {
     // Ajax 獲取資料
@@ -112,20 +115,12 @@ const photos = Vue.createApp({
       dataType: "json",
       success: (results) => {
         this.photos = results;
-        this.isPhotosLoaded = true; // 標誌資料已加載
+        
       },
       error: (error) => {
         console.error("Error fetching data:", error);
       },
     });
-  },
-  updated() {
-    if (this.isPhotosLoaded) {
-      // 確保資料已加載，並在 DOM 完成更新後初始化 GSAP
-      this.$nextTick(() => {
-        this.initGSAPAnimations();
-      });
-    }
   },
   
   methods: {
