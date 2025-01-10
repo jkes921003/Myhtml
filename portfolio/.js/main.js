@@ -101,6 +101,12 @@ const photos = Vue.createApp({
       photos: [], // 存放照片資料
     };
   },
+  updated() {
+    this.$nextTick(() => {
+      this.initGSAPAnimations();
+    });
+  },
+  
   mounted() {
     // Ajax 獲取資料
     $.ajax({
@@ -109,11 +115,7 @@ const photos = Vue.createApp({
       dataType: "json",
       success: (results) => {
         this.photos = results;
-        this.$nextTick(() => {
-          
-            this.initGSAPAnimations(); // 延遲執行動畫初始化
-          
-        });
+        
       },
       error: (error) => {
         console.error("Error fetching data:", error);
