@@ -48,7 +48,6 @@
             transform: translateY(300px);
             /* 初始位置 */
         }
-
         .text {
             opacity: 0;
             /* 初始透明度 */
@@ -63,53 +62,52 @@
 
 
 
-<!-- 導覽列 navbar  -->
+    <!-- 導覽列 navbar  -->
 
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-            <div class="container-fluid">
-                <img class="logo" src="img/logo.png" alt="logo">
-                <a class="navbar-brand" href="rtfantasy.html">RtFantasy</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <!-- 普通連結 -->
-                        <li class="nav-item" v-for="(link, index) in navLinks" :key="index">
-                            <a class="nav-link" :href="link.href">{{ link.text }}</a>
-                        </li>
+    <body>
+        <div id="app">
+            <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+                <div class="container-fluid">
+                    <img class="logo" src="img/logo.png" alt="logo">
+                    <a class="navbar-brand" href="rtfantasy.html">RtFantasy</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <!-- 普通連結 -->
+                            <li class="nav-item" v-for="(link, index) in navLinks" :key="index">
+                                <a class="nav-link" :href="link.href">{{ link.text }}</a>
+                            </li>
 
-                        <!-- 下拉式選單 -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                作品
-                            </a>
-                            <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
-                                <li class="dropdown-item" v-for="(option, index) in dropdownOptions"
-                                    :key="'dropdown-' + index">
-                                    <a :href="option.href">{{ option.text }}</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                            <!-- 下拉式選單 -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    作品
+                                </a>
+                                <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                                    <li class="dropdown-item" v-for="(option, index) in dropdownOptions"
+                                        :key="'dropdown-' + index">
+                                        <a :href="option.href">{{ option.text }}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </div>
+            </nav>
+        </div>
 
-    <!-- 作品內容 -->
-    <div class="content bg-light">
-        <h1>攝影</h1>
-    </div>
+        <!-- 作品內容 -->
+        <div class="content bg-light">
+            <h1>攝影</h1>
+        </div>
+        
 
-
-    <div id="photo">
-        <div class="container">
-            <div v-if="photos.length > 0">
+        <div id="photo">
+            <div class="container">
                 <div class="row block" v-for="photo in photos" :key="photo.modal">
                     <div class="col-md-6 col-sm-12 ">
                         <img :src="photo.imgsrc" class="image img-fluid" />
@@ -123,36 +121,34 @@
                 </div>
             </div>
         </div>
-    </div>
+        <!-- 空行 -->
+        <div class="row  block">
+        </div>
+        
 
-    <!-- 空行 -->
-    <div class="row  block">
-    </div>
+        <script>
 
-
-    <script>
-
-    </script>
+        </script>
 
 
-    <!-- 聲明區 -->
-    <footer class="bg-secondary text-white text-center py-3 mt-5">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4">
-                    <p class="mb-0">&copy; 2024 RtFantasy. All rights reserved.</p>
-                    <a href="#" class="text-white">隱私政策</a> |
-                    <a href="#" class="text-white">服務條款</a> &nbsp;
-                    <a href="#" class="text-white">聯絡資訊：921003jun@gmail.com</a>
+        <!-- 聲明區 -->
+        <footer class="bg-secondary text-white text-center py-3 mt-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                        <p class="mb-0">&copy; 2024 RtFantasy. All rights reserved.</p>
+                        <a href="#" class="text-white">隱私政策</a> |
+                        <a href="#" class="text-white">服務條款</a> &nbsp;
+                        <a href="#" class="text-white">聯絡資訊：921003jun@gmail.com</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
 
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src=".js/main.js"></script>
-</body>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src=".js/main.js"></script>
+    </body>
 
 </html>
