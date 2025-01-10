@@ -110,9 +110,9 @@ const photos = Vue.createApp({
       success: (results) => {
         this.photos = results;
         this.$nextTick(() => {
-          setTimeout(() => {
+          
             this.initGSAPAnimations(); // 延遲執行動畫初始化
-          },700); // 延遲 700 毫秒，可根據實際情況調整
+          
         });
       },
       error: (error) => {
